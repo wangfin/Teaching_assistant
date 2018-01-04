@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>添加课程</title>
+
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="this is my page">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+	<link rel="stylesheet" href="../weui/style/weuix.min.css" />
+	<link rel="stylesheet" href="../weui/style/weui.css" />
+	<link rel="stylesheet" href="../weui/style/weui2.css" />
+	<link rel="stylesheet" href="../weui/style/weui3.css" />
+
+	<script src="../weui/zepto.min.js"></script>
+	<script src="../weui/picker.js"></script>
+	<script src="../weui/select.js"></script>
+	<script>
+		$(function(){
+			$("#coursetime").select({
+				title: "上课时间",
+				autoClose:true,
+
+				items: ['1-2','3-4','6-7', '8-9', '10-12'],
+				onChange: function(d) {
+					//$.alert("你选择了"+d.values);
+				}
+			});
+			$("#classroom").select({
+				title: "选择上课教室",
+				items: ['A102', 'B203', 'C104', 'D217', 'M116', 'NE204'],
+				onChange: function(d) {
+					//$.alert("你选择了"+d.values+d.titles);
+				}
+			});
+			$("#startweek").select({
+				title: "选择开始周",
+				items: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+				onChange: function(d) {
+					//$.alert("你选择了"+d.values+d.titles);
+				}
+			});
+			$("#finishweek").select({
+				title: "选择结束周",
+				items: ["1", "2", "3", "4","5", "6", "7", "8", "9"],
+				onChange: function(d) {
+					//$.alert("你选择了"+d.values+d.titles);
+				}
+			});
+		});    
+
+	</script>
+
+	<style type="text/css">
+	.cellTitle{
+		color: #18B4ED;
+		margin-left: 5%;
+	}
+</style>
+</head>
+<body ontouchstart style="background-color: #f8f8f8;">
+	<div class="weui_cells_title">
+		<h2>课程添加</h2>
+	</div>
+	
+
+
+	<div class="weui_cells weui_cells_form">
+		<br>
+		<h3 class="cellTitle">课程信息</h3>
+		
+		<div class="weui_cell">
+			<div class="weui_cell_hd">
+				<label class="weui_label">教师姓名</label>
+			</div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" type="text" value="陆仁贾" 
+				id="weID" readonly="readonly" />
+			</div>
+		</div>
+		
+		<div class="weui_cell">
+			<div class="weui_cell_hd">
+				<label class="weui_label">课程编号</label>
+			</div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" type="text" placeholder="请输入课程编号" id="name" style="width:85%;"/>
+			</div>
+		</div>
+
+		<div class="weui_cell">
+			<div class="weui_cell_hd">
+				<label class="weui_label">课程名称</label>
+			</div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" type="text" placeholder="请输入课程名称" id="name" style="width:85%;"/>
+			</div>
+		</div>
+
+		<div class="weui_cell">
+			<div class="weui_cell_hd">
+				<label for="" class="weui_label">上课教室</label>
+			</div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" type="text" placeholder="请选择上课教室" value="" id='classroom'/>
+			</div>
+		</div>
+
+		<br>
+		<h3 class="cellTitle">课程时间</h3>
+
+		<div class="weui_cell">
+			<div class="weui_cell_hd">
+				<label for="" class="weui_label">上课时间</label>
+			</div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" type="text" placeholder="请选择上课时间" value="" id='coursetime'/>
+			</div>
+		</div>
+
+
+		<div class="weui_cell">
+			<div class="weui_cell_hd">
+				<label for="" class="weui_label">课程开始周</label>
+			</div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" type="text" placeholder="请选择开始周" value="" id='startweek'/>
+			</div>
+		</div>
+
+		<div class="weui_cell">
+			<div class="weui_cell_hd">
+				<label for="" class="weui_label">课程结束周</label>
+			</div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" type="text" placeholder="请选择结束周" value="" id='finishweek'/>
+			</div>
+		</div>
+
+		<label for="weuiAgree" class="weui-agree"> 
+			<div class="weui_btn_area">
+				<a href="javascript:;" class="weui_btn weui_btn_plain_primary" style="color: green;">确定</a>
+			</div>
+			<div class="weui_btn_area">
+				<a href="info.html" class="weui_btn weui_btn_plain_default">返回</a>
+			</div>
+		</div>
+
+
+
+
+	</body>
+	</html>

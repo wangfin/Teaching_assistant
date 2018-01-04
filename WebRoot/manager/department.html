@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>院系管理</title>
+
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="this is my page">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+	<link rel="stylesheet" href="../weui/style/weuix.min.css" />
+	<link rel="stylesheet" href="../weui/style/weui.css" />
+	<link rel="stylesheet" href="../weui/style/weui2.css" />
+	<link rel="stylesheet" href="../weui/style/weui3.css" />
+
+
+	<style type="text/css">
+	.cellTitle{
+		color: #18B4ED;
+	}
+
+	.backIco{
+		height: 10%;
+		width: 10%;
+		margin-top: 20px;
+		margin-right: 20px; 
+	}
+</style>
+</head>
+<body ontouchstart style="background-color: #f8f8f8;">
+
+	<div class="weui_panel">
+		
+		<span class="weui_panel_hd">
+			<a href="javascript:" onclick="self.location=document.referrer;">
+				<img class="backIco" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTE1MDY0NDU0OTk0IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEzMzcgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjMzMDkiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjYxLjEzMjgxMjUiIGhlaWdodD0iMjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwvc3R5bGU+PC9kZWZzPjxwYXRoIGQ9Ik0xMjQ2LjM5MDcxMSA4NDIuNjM5Mjc1Yy01Ni4wMTk3NDQtNTcuMTI5OTA3LTEzMi43NjQyMzYtMTU1LjUwNDY3MS0yMjcuMjIwMTc2LTE5Ny40ODYyMjYtMTA4LjI1MzY4LTQ0LjkwNzg4My0yMjkuMDQxNDU3LTg0Ljc5NzAxLTM3My4xMjIxOTMtODQuNzk3MDEtMjguMDY2MTQ4IDAuMDQ2MDQ0LTUwLjgwMTQ2NyAyMi43ODY0NzktNTAuODUyNjI3IDUwLjg1MjYyNnYxOTIuMjIxOTA1bC00NzUuMTM5NTE5LTM0NC4yNTI4NCA0NzUuMTM5NTE5LTM0Ni4wODk0N1YzMjAuNTE0NzkzYzAgMTMuNzE1ODg0IDUuNjc4NzE0IDI3LjA4Mzg4NCAxNS41NTI1MTQgMzYuNjA5Nzk5IDEwLjA0Nzc0MiA5LjYxMjg4NiAyNS40MjYzMTMgMTQuNDE2NzcxIDM2Ljk1NzY4MyAxNC4xNTU4NTZsNy44NjMyMjgtMC4wODY5NzFjNDguMTQxMTY4IDAgMzIzLjM2NDM4MiAyMy44MzAxMzQgNDczLjc5NDAyMyAyMTcuOTkwOTg3IDQ4Ljc2NTMxNSA2NS44MTE2ODkgOTEuMjQ4MjM0IDE2Mi4yNDIzODkgMTE3LjE5NjM3NSAyNTMuNjMzODdsLTAuMTY4ODI3LTAuMTc5MDU5bS0xMDcuNzkzMjQzLTM2NS4zNjY0MDFjLTc3LjA5NzQ5My03OC4zMDk5NzUtMTc3LjIwNjU2Ny0xMzQuMTc2MjQxLTI5Ny40OTgwOTctMTY2LjA2NDAwOWE4MjkuMTQzMzc3IDgyOS4xNDMzNzcgMCAwIDAtMTYwLjgyMDE1Mi0yNi4wNzYwNFY0Ni45Njk2MTRhNDYuNzM0MjggNDYuNzM0MjggMCAwIDAtMjUuNzUzNzM0LTQxLjczNTk4OSA0Ni4yNjM2MTIgNDYuMjYzNjEyIDAgMCAwLTQ4LjkyMzkxIDMuODcyNzgxTDM5LjY3NDI1NyA0MjEuMTYxMDQzYTQ3LjA2NjgxNyA0Ny4wNjY4MTcgMCAwIDAgMC4xNTg1OTUgNzUuOTcxOTgybDU2NS45MzI0MzMgNDEwLjEyMDgwNGE0Ni44MzE0ODMgNDYuODMxNDgzIDAgMCAwIDc0LjYwMDkwNi0zNy45Mzk5NDd2LTIyMS42ODk4MjVjMTkwLjI4ODA3MiA4LjIzNjY5MyAzNDIuNTQ0MTEgNjcuMDA4ODIzIDQ0MC43OTYwOTEgMTcwLjM0NjA2NyA3Ny45ODc2NyA4Mi4xMDYwMTYgOTcuMTIxMzU0IDE2NS4xNzg5NDkgOTcuODQ3ODIgMTY4LjMyNTI2M2E0Ni45Nzk4NDYgNDYuOTc5ODQ2IDAgMCAwIDQ2LjAxODA0NiAzNy42OTk0OTdsNC4yMDAyMDItMC4xNjM3MTFhNDYuOTg0OTYyIDQ2Ljk4NDk2MiAwIDAgMCA0Mi43ODk4NzYtNDYuMDE4MDQ1YzMuNDYzNTA0LTIxMS41MTkzLTU0LjgyMjYxLTM3OS43Njc4MjMtMTczLjQyMDc1OC01MDAuNTQwMjU0IiBmaWxsPSIjOGE4YThhIiBwLWlkPSIzMzEwIj48L3BhdGg+PC9zdmc+">
+			</a>
+			<span class="f35" style="margin-top : 20px;">院系管理</span>
+
+		</span>
+	</div>
+	
+	<div class="weui_panel">
+		<div class="weui_panel_hd">
+			<h2 class="cellTitle">学院</h2>
+		</div>
+		<div class="weui_panel_bd">
+			<div class="weui_media_box weui_media_small_appmsg">
+				<div class="weui_cells weui_cells_access">
+					<a class="weui_cell" href="#">
+						<div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<p>物联网工程学院</p>
+						</div>
+						<span class="weui_cell_ft"></span>
+					</a>
+					<a class="weui_cell" href="javascript:;">
+						<div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<p>企业管理学院</p>
+						</div>
+						<span class="weui_cell_ft"></span>
+					</a>
+					<a class="weui_cell" href="javascript:;">
+						<div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<p>机电工程学院</p>
+						</div>
+						<span class="weui_cell_ft"></span>
+					</a>
+					<a class="weui_cell" href="javascript:;">
+						<div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<p>基础学部</p>
+						</div>
+						<span class="weui_cell_ft"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>教师首页</title>
+
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+    <link rel="stylesheet" href="../weui/style/weuix.min.css" />
+    <link rel="stylesheet" href="../weui/style/weui.css" />
+    <link rel="stylesheet" href="../weui/style/weui2.css" />
+    <link rel="stylesheet" href="../weui/style/weui3.css" />
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    <style type="text/css">
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: 微软雅黑;
+    }
+
+    header {
+        height: 60px;
+        line-height: 60px;
+        width: 100%;
+        color: #fff;
+        font-family: "黑体";
+        font-weight: 200;
+        font-size: 20px;
+        /*背景色渐变*/
+        background: linear-gradient(to bottom right, #F56739, #FB9749);
+    }
+
+    #content {
+        background: linear-gradient(to bottom right, #f5f454, #fbd1b7);
+    }
+
+    .menu {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 70px;
+        color: #474747;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+        background-color: #fff;
+    }
+
+    .subMenu {
+        width: 33%;
+        float: left;
+        cursor: pointer;
+    }
+
+    .middleMenu {
+        background-color: #E78170; 
+        border-radius: 30px;
+    }
+
+    .menu_name {
+        height: 30px;
+        width: 100%;
+        line-height: 30px;
+    }
+
+    img.menu_img {
+        height: 28px;
+        width: 28px;
+    }
+
+    img.middlemenu_img {
+        height: 36px;
+        width: 36px; 
+        margin-top: 5px;
+    }
+
+    img {
+        vertical-align: middle;
+        border: 0;
+    }
+
+    .active {
+        color: #FFA129;
+    }
+
+    .text-center {
+        text-align: center
+    }
+</style>
+</head>
+
+<body>
+	<div class="weui_panel weui_panel_access">
+        <div class="weui_panel_hd">教师信息</div>
+        <div class="weui_panel_bd">
+            <a href="javascript:void(0);" class="weui_media_box weui_media_appmsg">
+                <div class="weui_media_hd">
+                    <img class="weui_media_appmsg_thumb circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTE1MDQ5NzI1MDY3IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjIzMTAiIGRhdGEtc3BtLWFuY2hvci1pZD0iYTMxM3guNzc4MTA2OS4wLmkxIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTY2Ni4xNDA5MzYgNTk4LjgzODI5NmM5OC4zODU5NTctNTQuNDY3MTggMTY1LjE1NDA0LTE1OS4zNDY3OTkgMTY1LjE1NDA0LTI3OS41NDMzMkM4MzEuMjk0OTc2IDE0My4yMzQxMzYgNjg4LjA1NzgwMyAwIDUxMiAwUzE5Mi43MDE5ODcgMTQzLjIzNDEzNiAxOTIuNzAxOTg3IDMxOS4yOTQ5NzZjMCAxMjAuMTk2NTIgNjYuNzY4MDgzIDIyNS4wNzYxMzkgMTY1LjE1NDA0IDI3OS41NDMzMkMxODQuMTYxMjEyIDY2Mi4wMDQxODggNTkuNzcwMjM2IDgyOC43NDM2NzggNTkuNzcwMjM2IDEwMjRoNjYuODE5NzE2YzAtMTk5LjUyMDYzNSAxNTIuMzk3NTQ5LTM2NC4xMDY3MDcgMzQ2LjkwMDYzMS0zODMuNDkwNWw3LjMyODkwOCA0MS44MzgyNTRINTQzLjY4MTY1N2w3LjMxOTc5Ni00MS43OTU3MzJjMTk0LjI2OTIxMyAxOS42MTE1ODcgMzQ2LjQwODU5NCAxODQuMDkxMzU1IDM0Ni40MDg1OTUgMzgzLjQ0NDk0MWg2Ni44MTk3MTZjLTAuMDAzMDM3LTE5NS4yNTMyODUtMTI0LjM5NDAxMy0zNjEuOTkyNzc1LTI5OC4wODg4MjgtNDI1LjE1ODY2N3pNMjU5LjUyMTcwMyAzMTkuMjk0OTc2QzI1OS41MjE3MDMgMTgwLjA3OTEzNSAzNzIuNzg0MTU5IDY2LjgxOTcxNiA1MTIgNjYuODE5NzE2czI1Mi40NzUyNiAxMTMuMjU5NDE5IDI1Mi40NzUyNiAyNTIuNDc1MjYtMTEzLjI1OTQxOSAyNTIuNDc1MjYtMjUyLjQ3NTI2IDI1Mi40NzUyNi0yNTIuNDc4Mjk3LTExMy4yNTk0MTktMjUyLjQ3ODI5Ny0yNTIuNDc1MjZ6IiBwLWlkPSIyMzExIiBmaWxsPSIjNzA3MDcwIj48L3BhdGg+PHBhdGggZD0iTTQ0Ni42MDE3MjIgOTMzLjY4NDA0Mmw2NS4xNDkyMjMgNDUuMTA2MzQ2VjcxMy40ODI3MDVoLTI4LjAxODcyMnpNNTEyLjI0OTA1NSA3MTMuNDgyNzA1djI2NS4zMDc2ODNsNjUuMTQ2MTg2LTQ1LjEwNjM0Ni0zNy4xMzA1MDEtMjIwLjIwMTMzN3oiIHAtaWQ9IjIzMTIiIGZpbGw9IiM3MDcwNzAiPjwvcGF0aD48L3N2Zz4=" alt="" style="border: dotted 1px black;" >
+                </div>
+                <div class="weui_media_bd">
+                    <h4 class="weui_media_title">陆仁贾</h4>
+                    <p class="weui_media_desc">
+                        学院：<span>物联网工程</span>&nbsp;&nbsp;&nbsp;职称：<span>教授<br>
+                            介绍：<span>主要从事机器学习、数据挖掘、人工智能等领域的研究</span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <a class="weui_panel_ft" href="javascript:void(0);">查看更多</a>
+        </div>
+
+        <div class="weui_panel">
+            <div class="weui_panel_hd">操作</div>
+            <div class="weui_panel_bd">
+                <div class="weui_media_box weui_media_small_appmsg">
+                    <div class="weui_cells weui_cells_access">
+                        <a class="weui_cell" href="myCourse.html">
+                            <div class="weui_cell_hd">
+                                <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTE1MDUwNTc2Njc1IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjM5NTIiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNODQxLjMyODA3NiAxNTYuODI2NzkxIDYzMS43NTM5NDMgMTU2LjgyNjc5MWMtNDguOTE1MDYgMC05Mi40MTc4NTMgMjMuNTgwMDQ1LTExOS43NTM0MzEgNTkuOTY3NzktMjcuMzM4NjQ4LTM2LjM4Nzc0NS03MC44NDU1MzUtNTkuOTY3NzktMTE5Ljc2MDU5NC01OS45Njc3OUwxODIuNjcwOTAxIDE1Ni44MjY3OTFjLTMzLjAwOTgxMSAwLTU5Ljg3OTc4NiAyNi44NTM2MDEtNTkuODc5Nzg2IDU5Ljg3OTc4NmwwIDU1My44NzA2MmMwIDMzLjAwOTgxMSAyNi44NDEzMjIgNTkuODc5Nzg2IDU5Ljg3OTc4NiA1OS44Nzk3ODZsMjIwLjA5ODgzNyAwYzI5LjM3ODA5OCAyOC43MTI5NDkgNjguNDczNTExIDQ0LjkwOTgzOSAxMDkuMjI5NzUgNDQuOTA5ODM5IDQwLjc1NTIxNiAwIDc5Ljg0NDQ4OS0xNi4xOTY4OTEgMTA5LjIyODcyNy00NC45MDk4MzlsMjIwLjA5ODgzNyAwYzMzLjAwOTgxMSAwIDU5Ljg3OTc4Ni0yNi44MzgyNTIgNTkuODc5Nzg2LTU5Ljg3OTc4Nkw5MDEuMjA2ODM4IDIxNi43MDY1NzdDOTAxLjIwNzg2MSAxODMuNjk2NzY2IDg3NC4zNjk2MDkgMTU2LjgyNjc5MSA4NDEuMzI4MDc2IDE1Ni44MjY3OTFMODQxLjMyODA3NiAxNTYuODI2Nzkxek04NTkuOTIzNTk2IDc1OC4xMjk3YzAgMTUuODI1NDMtMTIuODI3MTQzIDI4LjY1MjU3NC0yOC42NTI1NzQgMjguNjUyNTc0TDYxMy43MTQwNzggNzg2Ljc4MjI3NGMtOS4yMzMyOTIgMC0xOC4wMDgxNDIgNC4wNDUxMjktMjQuMDI3MjMgMTEuMTMyNTQ4LTE5LjgwMzAyMiAyMy4yNjM4NDMtNDguMTI3MTE0IDM2LjYzNTM4NS03Ny42ODYzMzcgMzYuNjM1Mzg1LTI5LjU2MTI2OSAwLTU3Ljg4NjM4NS0xMy4zNzA1MTktNzcuNjgzMjY3LTM2LjYzNTM4NS02LjAyNTIyNy03LjA4NzQxOS0xNC43OTM5MzgtMTEuMTMyNTQ4LTI0LjAzMzM2OS0xMS4xMzI1NDhsLTIxNy41NTQ4OTggMGMtMTUuODI1NDMgMC0yOC42NTI1NzQtMTIuODI3MTQzLTI4LjY1MjU3NC0yOC42NTI1NzRMMTY0LjA3NjQwNCAyMjYuMjk3MDAzYzAtMTUuODI2NDU0IDEyLjgyNzE0My0yOC42NTI1NzQgMjguNjUyNTc0LTI4LjY1MjU3NGwxOTIuNzUzMDI1IDBjNTIuMzI0NzE2IDAgMTA1LjUzMjU0NSA0Mi44NTQwMTcgMTA1LjUzMjU0NSA5NS41MzM4MmwwIDUzOS4wNTQxNjljMCAwIDEwLjQ5Mjk4MiAyLjIxODUyOCAyMC45ODU5NjQgMi4yMTg1MjhzMjAuOTg1OTY0LTIuMjE4NTI4IDIwLjk4NTk2NC0yLjIxODUyOEw1MzIuOTg2NDc1IDI5My4xNzgyNDljMC01Mi42ODI4NzMgNTMuMjA3ODI5LTk1LjUzMzgyIDEwNS41MzI1NDUtOTUuNTMzODJsMTkyLjc1MzAyNSAwYzE1LjgyNTQzIDAgMjguNjUyNTc0IDEyLjgyNjEyIDI4LjY1MjU3NCAyOC42NTI1NzRMODU5LjkyNDYxOSA3NTguMTI5NyA4NTkuOTIzNTk2IDc1OC4xMjk3ek04NTkuOTIzNTk2IDc1OC4xMjk3IiBwLWlkPSIzOTUzIiBmaWxsPSIjNTE1MTUxIj48L3BhdGg+PC9zdmc+" alt="" style="width:30px;margin-right:18px;display:block" >
+                            </div>
+                            <div class="weui_cell_bd weui_cell_primary">
+                                <p>我的课程</p>
+                            </div>
+                            <span class="weui_cell_ft"></span>
+                        </a>
+                        <a class="weui_cell" href="addCourse.html">
+                            <div class="weui_cell_hd"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTE1MDUwNjgwOTI4IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjQ5MTIiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNNTEyIDEyOGMxMDIuNCAwIDE5OC40IDM4LjQgMjY4LjggMTE1LjJDODU3LjYgMzEzLjYgODk2IDQwOS42IDg5NiA1MDUuNmMwIDEwMi40LTM4LjQgMTk4LjQtMTE1LjIgMjc1LjJDNzEwLjQgODU3LjYgNjE0LjQgODk2IDUxMiA4OTZzLTE5OC40LTM4LjQtMjY4LjgtMTE1LjJDMTY2LjQgNzEwLjQgMTI4IDYxNC40IDEyOCA1MTJzMzguNC0xOTguNCAxMTUuMi0yNjguOEMzMTMuNiAxNjYuNCA0MDkuNiAxMjggNTEyIDEyOG0wLTY0Yy0xMTUuMiAwLTIyNCA0NC44LTMxMy42IDEzNC40LTE3OS4yIDE3OS4yLTE3OS4yIDQ0OCAwIDYyNy4yQzI4OCA5MTUuMiAzOTYuOCA5NjAgNTEyIDk2MHMyMjQtNDQuOCAzMTMuNi0xMzQuNGMxNzkuMi0xNzkuMiAxNzkuMi00NTQuNCAwLTYyNy4yQzczNiAxMDguOCA2MjcuMiA2NCA1MTIgNjR6IiBmaWxsPSIjNTE1MTUxIiBwLWlkPSI0OTEzIj48L3BhdGg+PHBhdGggZD0iTTgwMCA1NDRoLTI1NnYyNTZjMCAxOS4yLTEyLjggMzItMzIgMzJzLTMyLTEyLjgtMzItMzJ2LTI1NmgtMjU2Yy0xOS4yIDAtMzItMTIuOC0zMi0zMnMxMi44LTMyIDMyLTMyaDI1NnYtMjU2YzAtMTkuMiAxMi44LTMyIDMyLTMyczMyIDEyLjggMzIgMzJ2MjU2aDI1NmMxOS4yIDAgMzIgMTIuOCAzMiAzMnMtMTIuOCAzMi0zMiAzMnoiIGZpbGw9IiM1MTUxNTEiIHAtaWQ9IjQ5MTQiPjwvcGF0aD48L3N2Zz4=" alt="" style="width:30px;margin-right:18px;display:block"></div>
+                            <div class="weui_cell_bd weui_cell_primary">
+                                <p>添加课程</p>
+                            </div>
+                            <span class="weui_cell_ft"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui_panel">
+            <div class="weui_panel_hd">个人设置</div>
+            <div class="weui_panel_bd">
+                <div class="weui_media_box weui_media_small_appmsg">
+                    <div class="weui_cells weui_cells_access">
+                        <a class="weui_cell" href="javascript:;">
+                            <div class="weui_cell_hd">
+                                <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTE1MDUwODY3MTY2IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjYwNTgiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNOTQ4Ljk2OSAzOTUuMzU3bDIyLjM0Mi01My41NzQtNTkuMzkyLTM3LjE0M2MyLjYwNi0xNi43MSAyLjYwNi0zMy4zMjcgMC4yMzItNDkuNjY0bDU5LjM0Ni0zNy4zNzYtMjIuMDYzLTUzLjc2LTY4LjA1IDE1Ljc3OWMtOS43MjctMTMuNDA1LTIxLjUwMy0yNS4zMi0zNS4xNDEtMzUuNTZsMTUuNDUzLTY4LjA1LTUzLjYyLTIyLjQzNS0zNi43NzEgNTguOTI2YTE2Ni43NDIgMTY2Ljc0MiAwIDAgMC00OS45OS0wLjMyNWwtMzYuNDkyLTU5LjAyLTUzLjc2IDIxLjkyMyAxNC43NTUgNjcuODYzYy0xMy40MDUgOS43NzUtMjUuNDYgMjEuNjQ0LTM1LjcgMzUuMzc1bC02Ny4zNTEtMTUuOTE5LTIyLjM4OSA1My41NzQgNTguMjI5IDM3LjYwOWExNjYuNjkxIDE2Ni42OTEgMCAwIDAtMC4xNCA1MC4yMjJsLTU4LjkyNyAzNi4zNTIgMjIuMDE2IDUzLjg1MyA2Ny45MS0xNC44MDFjOS44NjggMTMuMzU4IDIxLjY0NCAyNS4yNzQgMzUuMzI4IDM1LjQybC0xNS45MTggNjcuNzI1IDUzLjU3MyAyMi4zNDEgMzcuODQyLTU4Ljc0YzE2LjcxIDIuNTEzIDMzLjU2IDIuNDY3IDQ5Ljg1LTAuMDkzbDM3LjM3NiA1OS4yOTkgNTMuNzE0LTIyLjA2My0xNS43OC02OC4xNDJjMTMuMjItOS43NzUgMjUuMTM1LTIxLjUwNCAzNS4xODktMzUuMDQ5bDY4LjMyOSAxNS40NTN6IG0tMjM0LjU5LTQxLjMzMmMtNDEuMjM5LTE3LjI2OS02MC43NDEtNjQuNjUyLTQzLjQ3My0xMDYuMDMgMTcuMjY5LTQxLjI0IDY0Ljc0NS02MC42NSAxMDYuMDMtNDMuMzgxIDQxLjI4NyAxNy4zMTUgNjAuNzQzIDY0LjY5OCA0My40NzQgMTA2LjAzLTE3LjI2OCA0MS4xOTMtNjQuNzQ1IDYwLjY1LTEwNi4wMyA0My4zOHogbS01OS45MDMgMzU3LjI4M3YtNzUuOTYzbC05MC4zOTItMTQuODAxYy01LjM1Mi0yMS4zNjQtMTMuNzMtNDEuNTE5LTI0Ljg1NS01OS45NWw1Mi42OS03NS4xMjUtNTMuNzE0LTUzLjY2Ny03NC4xIDUzLjM0MWMtMTguNTI1LTExLjIxNy0zOC43MjYtMTkuNzM1LTYwLjMyMy0yNS4wODhsLTE1LjczMy04OS45NzJoLTc1Ljk2MmwtMTQuNjE1IDg5LjY5M2MtMjEuNTk3IDUuMjYtNDEuOTM3IDEzLjY4NC02MC40NjMgMjQuODA5bC03My45MTQtNTIuNzM2LTUzLjc2IDUzLjY2NyA1MS45OTIgNzQuMzMzYy0xMS4yMTggMTguNjE4LTE5Ljc4MiAzOC45MTItMjUuMTgyIDYwLjY0OGwtODkuMjc0IDE0Ljg0OHY3NS45NjNsODkuMTgxIDE1Ljc3OWM1LjQgMjEuNjkgMTMuOTE3IDQyLjAzIDI1LjIyOCA2MC42OTVsLTUyLjczNiA3My42ODEgNTMuNzEzIDUzLjc2IDc0LjQ3My01Mi4xM2MxOC42MTggMTEuMTcgMzguODY2IDE5LjY0MiA2MC40NjMgMjQuOTQ4bDE0Ljg5NCA4OS43NGg3Ni4wMDlsMTUuOTY1LTg5Ljk3M2EyMTguMDE3IDIxOC4wMTcgMCAwIDAgNjAuMTM3LTI1LjE4MWw3NC45MzggNTIuNjQzIDUzLjcxMy01My43Ni01My40OC03NC4yODdjMTEuMDc4LTE4LjQ3OCAxOS41MDItMzguNTg2IDI0Ljc2Mi02MC4wNDNsOTAuMzQ1LTE1Ljg3MnpNMzUwLjcyIDc3OS44NjljLTU4LjUwOCAwLTEwNS45MzctNDcuNDMtMTA1LjkzNy0xMDUuOTM3UzI5Mi4yMTMgNTY4LjA0IDM1MC43MiA1NjguMDRzMTA1Ljg5IDQ3LjQzIDEwNS44OSAxMDUuODljMCA1OC41MDgtNDcuMzgyIDEwNS45MzgtMTA1Ljg5IDEwNS45Mzh6IiBwLWlkPSI2MDU5IiBmaWxsPSIjNzA3MDcwIj48L3BhdGg+PC9zdmc+" alt="" style="width:30px;margin-right:18px;display:block" >
+                            </div>
+                            <div class="weui_cell_bd weui_cell_primary">
+                                <p>设置</p>
+                            </div>
+                            <span class="weui_cell_ft"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--bottom-->
+        <div id="menu" class="menu">
+            <div id="course" class="subMenu text-center">
+                <img class="menu_img" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTE1MDUwNTc2Njc1IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjM5NTIiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNODQxLjMyODA3NiAxNTYuODI2NzkxIDYzMS43NTM5NDMgMTU2LjgyNjc5MWMtNDguOTE1MDYgMC05Mi40MTc4NTMgMjMuNTgwMDQ1LTExOS43NTM0MzEgNTkuOTY3NzktMjcuMzM4NjQ4LTM2LjM4Nzc0NS03MC44NDU1MzUtNTkuOTY3NzktMTE5Ljc2MDU5NC01OS45Njc3OUwxODIuNjcwOTAxIDE1Ni44MjY3OTFjLTMzLjAwOTgxMSAwLTU5Ljg3OTc4NiAyNi44NTM2MDEtNTkuODc5Nzg2IDU5Ljg3OTc4NmwwIDU1My44NzA2MmMwIDMzLjAwOTgxMSAyNi44NDEzMjIgNTkuODc5Nzg2IDU5Ljg3OTc4NiA1OS44Nzk3ODZsMjIwLjA5ODgzNyAwYzI5LjM3ODA5OCAyOC43MTI5NDkgNjguNDczNTExIDQ0LjkwOTgzOSAxMDkuMjI5NzUgNDQuOTA5ODM5IDQwLjc1NTIxNiAwIDc5Ljg0NDQ4OS0xNi4xOTY4OTEgMTA5LjIyODcyNy00NC45MDk4MzlsMjIwLjA5ODgzNyAwYzMzLjAwOTgxMSAwIDU5Ljg3OTc4Ni0yNi44MzgyNTIgNTkuODc5Nzg2LTU5Ljg3OTc4Nkw5MDEuMjA2ODM4IDIxNi43MDY1NzdDOTAxLjIwNzg2MSAxODMuNjk2NzY2IDg3NC4zNjk2MDkgMTU2LjgyNjc5MSA4NDEuMzI4MDc2IDE1Ni44MjY3OTFMODQxLjMyODA3NiAxNTYuODI2Nzkxek04NTkuOTIzNTk2IDc1OC4xMjk3YzAgMTUuODI1NDMtMTIuODI3MTQzIDI4LjY1MjU3NC0yOC42NTI1NzQgMjguNjUyNTc0TDYxMy43MTQwNzggNzg2Ljc4MjI3NGMtOS4yMzMyOTIgMC0xOC4wMDgxNDIgNC4wNDUxMjktMjQuMDI3MjMgMTEuMTMyNTQ4LTE5LjgwMzAyMiAyMy4yNjM4NDMtNDguMTI3MTE0IDM2LjYzNTM4NS03Ny42ODYzMzcgMzYuNjM1Mzg1LTI5LjU2MTI2OSAwLTU3Ljg4NjM4NS0xMy4zNzA1MTktNzcuNjgzMjY3LTM2LjYzNTM4NS02LjAyNTIyNy03LjA4NzQxOS0xNC43OTM5MzgtMTEuMTMyNTQ4LTI0LjAzMzM2OS0xMS4xMzI1NDhsLTIxNy41NTQ4OTggMGMtMTUuODI1NDMgMC0yOC42NTI1NzQtMTIuODI3MTQzLTI4LjY1MjU3NC0yOC42NTI1NzRMMTY0LjA3NjQwNCAyMjYuMjk3MDAzYzAtMTUuODI2NDU0IDEyLjgyNzE0My0yOC42NTI1NzQgMjguNjUyNTc0LTI4LjY1MjU3NGwxOTIuNzUzMDI1IDBjNTIuMzI0NzE2IDAgMTA1LjUzMjU0NSA0Mi44NTQwMTcgMTA1LjUzMjU0NSA5NS41MzM4MmwwIDUzOS4wNTQxNjljMCAwIDEwLjQ5Mjk4MiAyLjIxODUyOCAyMC45ODU5NjQgMi4yMTg1MjhzMjAuOTg1OTY0LTIuMjE4NTI4IDIwLjk4NTk2NC0yLjIxODUyOEw1MzIuOTg2NDc1IDI5My4xNzgyNDljMC01Mi42ODI4NzMgNTMuMjA3ODI5LTk1LjUzMzgyIDEwNS41MzI1NDUtOTUuNTMzODJsMTkyLjc1MzAyNSAwYzE1LjgyNTQzIDAgMjguNjUyNTc0IDEyLjgyNjEyIDI4LjY1MjU3NCAyOC42NTI1NzRMODU5LjkyNDYxOSA3NTguMTI5NyA4NTkuOTIzNTk2IDc1OC4xMjk3ek04NTkuOTIzNTk2IDc1OC4xMjk3IiBwLWlkPSIzOTUzIiBmaWxsPSIjNTE1MTUxIj48L3BhdGg+PC9zdmc+">
+                <div class="menu_name">课程表</div>
+            </div>
+            <div id="homepage" class="subMenu text-center middleMenu" data-src="personal.html" style="height: 90%;">
+                <img class="middlemenu_img" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTE1MDUzMTY4ODMyIiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjY5MzAiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNMTAwNy4wNzIgNTQyLjQ4IDUxMi4wMTYgNzkuMTUyIDE2Ljk2IDU0MS4xMmMtOS42OCA5LjA0LTEwLjIyNCAyNC4yNC0xLjE2OCAzMy45MiA5LjA0IDkuNjggMjQuMjQgMTAuMjI0IDMzLjkyIDEuMTY4bDQ2Mi4yNzItNDMxLjM2IDQ2Mi4yODggNDMyLjY3MmM0LjY0IDQuMzM2IDEwLjUyOCA2LjQ4IDE2LjQgNi40OCA2LjQgMCAxMi44LTIuNTQ0IDE3LjUyLTcuNkMxMDE3LjI0OCA1NjYuNzIgMTAxNi43NTIgNTUxLjUzNiAxMDA3LjA3MiA1NDIuNDh6TTg1NiA1NTJjLTEzLjI0OCAwLTI0IDEwLjc1Mi0yNCAyNGwwIDM2OEw2NDAgOTQ0IDY0MCA2ODggMzg0IDY4OGwwIDI1NkwxOTIgOTQ0IDE5MiA1NzZjMC0xMy4yNDgtMTAuNzM2LTI0LTI0LTI0UzE0NCA1NjIuNzUyIDE0NCA1NzZsMCA0MTYgMjg4IDBMNDMyIDczNmwxNjAgMCAwIDI1NiAyODggMEw4ODAgNTc2Qzg4MCA1NjIuNzUyIDg2OS4yNDggNTUyIDg1NiA1NTJ6TTY4OCAyMDhsMTQ0IDAgMCAxMjhjMCAxMy4yNjQgMTAuNzUyIDI0IDI0IDI0Uzg4MCAzNDkuMjY0IDg4MCAzMzZMODgwIDE2MCA2ODggMTYwYy0xMy4yNDggMC0yNCAxMC43MzYtMjQgMjRTNjc0Ljc1MiAyMDggNjg4IDIwOHoiIHAtaWQ9IjY5MzEiIGZpbGw9IiNmZmZmZmYiPjwvcGF0aD48L3N2Zz4=" >
+
+            </div>
+            <div id="my" class="subMenu text-center active" data-src="personal.html">
+                <img class="menu_img" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTE1MDQ5NzI1MDY3IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjIzMTAiIGRhdGEtc3BtLWFuY2hvci1pZD0iYTMxM3guNzc4MTA2OS4wLmkxIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTY2Ni4xNDA5MzYgNTk4LjgzODI5NmM5OC4zODU5NTctNTQuNDY3MTggMTY1LjE1NDA0LTE1OS4zNDY3OTkgMTY1LjE1NDA0LTI3OS41NDMzMkM4MzEuMjk0OTc2IDE0My4yMzQxMzYgNjg4LjA1NzgwMyAwIDUxMiAwUzE5Mi43MDE5ODcgMTQzLjIzNDEzNiAxOTIuNzAxOTg3IDMxOS4yOTQ5NzZjMCAxMjAuMTk2NTIgNjYuNzY4MDgzIDIyNS4wNzYxMzkgMTY1LjE1NDA0IDI3OS41NDMzMkMxODQuMTYxMjEyIDY2Mi4wMDQxODggNTkuNzcwMjM2IDgyOC43NDM2NzggNTkuNzcwMjM2IDEwMjRoNjYuODE5NzE2YzAtMTk5LjUyMDYzNSAxNTIuMzk3NTQ5LTM2NC4xMDY3MDcgMzQ2LjkwMDYzMS0zODMuNDkwNWw3LjMyODkwOCA0MS44MzgyNTRINTQzLjY4MTY1N2w3LjMxOTc5Ni00MS43OTU3MzJjMTk0LjI2OTIxMyAxOS42MTE1ODcgMzQ2LjQwODU5NCAxODQuMDkxMzU1IDM0Ni40MDg1OTUgMzgzLjQ0NDk0MWg2Ni44MTk3MTZjLTAuMDAzMDM3LTE5NS4yNTMyODUtMTI0LjM5NDAxMy0zNjEuOTkyNzc1LTI5OC4wODg4MjgtNDI1LjE1ODY2N3pNMjU5LjUyMTcwMyAzMTkuMjk0OTc2QzI1OS41MjE3MDMgMTgwLjA3OTEzNSAzNzIuNzg0MTU5IDY2LjgxOTcxNiA1MTIgNjYuODE5NzE2czI1Mi40NzUyNiAxMTMuMjU5NDE5IDI1Mi40NzUyNiAyNTIuNDc1MjYtMTEzLjI1OTQxOSAyNTIuNDc1MjYtMjUyLjQ3NTI2IDI1Mi40NzUyNi0yNTIuNDc4Mjk3LTExMy4yNTk0MTktMjUyLjQ3ODI5Ny0yNTIuNDc1MjZ6IiBwLWlkPSIyMzExIiBmaWxsPSIjNzA3MDcwIj48L3BhdGg+PHBhdGggZD0iTTQ0Ni42MDE3MjIgOTMzLjY4NDA0Mmw2NS4xNDkyMjMgNDUuMTA2MzQ2VjcxMy40ODI3MDVoLTI4LjAxODcyMnpNNTEyLjI0OTA1NSA3MTMuNDgyNzA1djI2NS4zMDc2ODNsNjUuMTQ2MTg2LTQ1LjEwNjM0Ni0zNy4xMzA1MDEtMjIwLjIwMTMzN3oiIHAtaWQ9IjIzMTIiIGZpbGw9IiM3MDcwNzAiPjwvcGF0aD48L3N2Zz4=">
+                <div class="menu_name">我的</div>
+            </div>
+
+        </div>
+    </body>
+    <script>
+        $("#course").click(function() {
+            location.href = "./index.html";
+        });
+
+        $("#homepage").click(function() {
+            location.href = "#";
+        });
+
+        $("#my").click(function() {
+            location.href = "./info.html";
+        });
+    </script>
+    </html>
