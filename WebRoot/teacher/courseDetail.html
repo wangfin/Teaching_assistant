@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title>添加课程</title>
+	<title>课程信息</title>
 
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="this is my page">
@@ -31,6 +31,12 @@
 	<div class="weui_cells weui_cells_form">
 		<br>
 		<h3 class="cellTitle">课程信息</h3>
+		<div style="float: right;position: relative;bottom: 25px;">
+			<a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default" style="margin-right: 5px;">
+			修改
+		</a>
+		</div>
+		
 		
 		<div class="weui_cell">
 			<div class="weui_cell_hd">
@@ -100,12 +106,44 @@
 			</div>
 		</div>
 
+		<br>
+		<h3 class="cellTitle">选课学生</h3>
+
+		<div class="weui_cell">
+			<div class="weui_cell_hd">
+				<label for="" class="weui_label">上课时间</label>
+			</div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" type="text"  value="1-2" id='coursetime'/>
+			</div>
+		</div>
+
+
+		<div class="weui_cell">
+			<div class="weui_cell_hd">
+				<label for="" class="weui_label">课程开始周</label>
+			</div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" type="text"  value="3" id='startweek'/>
+			</div>
+		</div>
+
+		<div class="weui_cell">
+			<div class="weui_cell_hd">
+				<label for="" class="weui_label">课程结束周</label>
+			</div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" type="text" value="9" id='finishweek'/>
+			</div>
+		</div>
+
 		<label for="weuiAgree" class="weui-agree"> 
 			<div class="weui_btn_area">
-				<a href="javascript:;" class="weui_btn bg-orange-b" style="color: #FF6600">修改</a>
+				<a href="javascript:;" class="weui_btn bg-orange-b" style="color: #FF6600">点名</a>
 			</div>
 			<div class="weui_btn_area">
-				<a href="myCourse.html" class="weui_btn weui_btn_plain_default">返回</a>
+				<!--返回并刷新-->
+				<a href="javascript:" onclick="self.location=document.referrer;" class="weui_btn weui_btn_plain_default">返回</a>
 			</div>
 		</div>
 
