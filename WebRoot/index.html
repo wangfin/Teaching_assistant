@@ -22,7 +22,7 @@
 	<script>
         $(function(){
         
-		        $("#d1").select({
+		        $("#identity").select({
 		        title: "选择身份",
 		        autoClose:true,
 		        
@@ -53,21 +53,24 @@
         	<h1 class="title" style="display:none"></h1>
 		</header>
 		<!-- 标题栏   -->
-			<div class="weui-header bg-blue" style="height:78px;background-color:#01164b">
-				<div class="weui-header-left">
-					<a class=" f-white">
-						<!--  <div class="weui-avatar-circle">
-							<img src="/library/image/myicon/book.svg" class="weui-avatar-url">
-						</div>-->
-					 </a>
-				</div>
+			<div class="weui-header bg-blue" style="height:78px;background-color:#326f8d">
+				<!--  <div class="weui-header-left" >
+						<div class="weui-avatar-circle">
+							<img src="./weui/images/icon_library.png" class="weui-avatar-url">
+						</div>
+					 
+				</div>-->
 				<h1 class="weui-header-title" style="margin-top:15px">
 					<span class="">授课小助手</span>
 				</h1>
-				<!-- <div class="weui-header-right" style="margin-top:15px">
-					         <a class="icon icon-83 f-white"></a>
-					  </div> -->
-				</div>
+				<!--  <div class="weui-header-right" style="margin-top:15px">
+					         <a class="icon icon-83 f-white">
+						         <div class="weui_grid_icon">
+	                   				 <img src="./weui/images/icon_library.png" alt="">
+	               				 </div>
+					         </a>
+					  </div>-->
+				</div> 
       <section><!--class="box"-->
         <h2 class="box-title" style="display:none;"></h2>
         <div id="mocha">
@@ -126,18 +129,18 @@
          <div class="weui_grids"  >
             <a href="javascript:;" class="weui_grid js_grid"  >
                 <div class="weui_grid_icon">
-                    <img src="./weui/images/icon_nav_button.png" alt="">
+                    <img src="./weui/images/icon_school.png" alt="">
                 </div>
                 <p class="weui_grid_label">
-                    按钮
+                   校情总览
                 </p>
             </a>
             <a href="javascript:;" class="weui_grid js_grid" >
                 <div class="weui_grid_icon">
-                    <img src="./weui/images/icon_nav_cell.png" alt="">
+                    <img src="./weui/images/icon_department.png" alt="">
                 </div>
                 <p class="weui_grid_label">
-                    列表出来看看
+                    院系机构
                 </p>
             </a>
             <a href="javascript:;" class="weui_grid js_grid" >
@@ -145,31 +148,7 @@
                     <img src="./weui/images/icon_nav_toast.png" alt="">
                 </div>
                 <p class="weui_grid_label">
-                    QQ
-                </p>
-            </a>
-            <a href="javascript:;" class="weui_grid js_grid" >
-                <div class="weui_grid_icon">
-                    <img src="./weui/images/icon_nav_dialog.png" alt="">
-                </div>
-                <p class="weui_grid_label">
-                    弹出框
-                </p>
-            </a>
-            <a href="javascript:;" class="weui_grid js_grid" >
-                <div class="weui_grid_icon">
-                    <img src="./weui/images/icon_nav_progress.png" alt="">
-                </div>
-                <p class="weui_grid_label">
-                    进度条
-                </p>
-            </a>
-            <a href="javascript:;" class="weui_grid js_grid" >
-                <div class="weui_grid_icon">
-                    <img src="./weui/images/icon_nav_msg.png" alt="">
-                </div>
-                <p class="weui_grid_label">
-                    消息
+                    专业信息
                 </p>
             </a>
             <a href="javascript:;" class="weui_grid js_grid" >
@@ -177,7 +156,7 @@
                     <img src="./weui/images/icon_nav_article.png" alt="">
                 </div>
                 <p class="weui_grid_label">
-                    文章
+                    若水新闻
                 </p>
             </a>
             <a href="javascript:;" class="weui_grid js_grid" >
@@ -190,29 +169,21 @@
             </a>
             <a href="javascript:;" class="weui_grid js_grid" >
                 <div class="weui_grid_icon">
-                    <img src="./weui/images/icon_nav_icons.png" alt="">
+                    <img src="./weui/images/icon_library.png" alt="">
                 </div>
                 <p class="weui_grid_label">
-                    图标
+                    图书馆
                 </p>
             </a>
             <a href="javascript:;" class="weui_grid js_grid" >
                 <div class="weui_grid_icon">
-                    <img src="./weui/images/icon_nav_panel.png" alt="">
+                    <img src="./weui/images/icon_scenery.png" alt="">
                 </div>
                 <p class="weui_grid_label">
-                    面板
+                    校园美景
                 </p>
             </a>
-            <a href="javascript:;" class="weui_grid js_grid" >
-                <div class="weui_grid_icon">
-                    <img src="./weui/images/icon_nav_tab.png" alt="">
-                </div>
-                <p class="weui_grid_label">
-                    Tab
-                </p>
-            </a>
-            <a href="javascript:;" class="weui_grid js_grid" >
+                        <a href="javascript:;" class="weui_grid js_grid" >
                 <div class="weui_grid_icon">
                     <img src="./weui/images/icon_nav_search_bar.png" alt="">
                 </div>
@@ -220,6 +191,15 @@
                     搜索
                 </p>
             </a>
+            <a href="javascript:;" class="weui_grid js_grid" >
+                <div class="weui_grid_icon">
+                    <img src="./weui/images/icon_contact.png" alt="">
+                </div>
+                <p class="weui_grid_label">
+                    联系我们
+                </p>
+            </a>
+
         </div>
     
     <div class='page-hd'><a href="javascript:;" class="weui_btn weui_btn_primary open-popup " data-target="#popup">登录界面</a></div>
@@ -232,21 +212,21 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="weui_label">个人编号：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="number" pattern="[0-9]*" placeholder="请输入编号"/>
+                    <input class="weui_input" type="number" pattern="[0-9]*" placeholder="请输入编号" id="username"/>
                 </div>
             </div>
             
               <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="weui_label">密码：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="password" placeholder="请输入密码"/>
+                    <input class="weui_input" type="password" placeholder="请输入密码"  id="password"/>
                 </div>
             </div>
             
               <div class="weui_cell">
                 <div class="weui_cell_hd"><label for="" class="weui_label">选择身份：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input"  type="text"  value=""  id='d1'/>  
+                    <input class="weui_input"  type="text"  value=""  id='identity'/>  
                </div>
               
             </div> 
@@ -261,4 +241,46 @@
 		  </div>
 	 </div> 
 	</body>
+	<script>
+	 	//登录
+		$("#login").click(function(){
+	  		var username = $("#username").val();//账号
+	  		var password = $("#password").val();//密码
+	  		var identity = $("#identity").val();//身份
+	  		//alert(username+"   "+password+"   "+identity);
+	  		var logid = "";//登陆身份
+	  		if(identity == "学生"){
+	  			logid="student";
+	  		}else if(identity == "老师"){
+	  			logid="teacher";
+	  		}else if(identity == "管理员"){
+	  			logid="manager";
+	  		}
+	  		$.ajax({
+			 	//用户登录的action
+	            url:"student/LoginAction",
+	            type:'POST', //POST
+	            //contentType:'application/json',
+	            data:{ 
+		            username : username ,
+		            password : password    
+	            },
+	            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+	            success:function(data){
+					var d = eval("("+data+")");//将数据转换成json类型，可以把data用alert()输出出来看看到底是什么样的结构
+                    //得到的d是一个形如{"key":"value","key1":"value1"}的数据类型，然后取值出来
+                    //alert(d.isSave);
+                    //alert(d.result);
+                    if(d.result=="成功"){
+                    	alert("登录成功，跳转到首页");
+                    	window.location.href="index.html";
+                    }else{
+                    	alert(d.result);
+                    }
+                    
+	            }
+	       });
+	  	});
+		
+	</script>
 </html>

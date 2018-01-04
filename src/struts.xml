@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-		<package name="student" extends="json-default" namespace="/student">
+		<package name="student" namespace="/student" extends="json-default" >
 	        
 	        <!-- 学生登录 -->
 	        <action name="LoginAction" class="student.action.LoginAction" method="login">
