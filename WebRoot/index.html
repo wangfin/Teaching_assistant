@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>首页</title>
+	 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	
+	 <link rel="stylesheet" href="./weui/style/weuix.min.css"/>
+	
+	
+	<script src="./weui/zepto.min.js"></script>
+	<script src="js/swipe.js"></script>
+	
+  <link rel="stylesheet" href="./weui/style/weui.css"/>
+  <link rel="stylesheet" href="./weui/style/weui2.css"/>
+  <link rel="stylesheet" href="./weui/style/weui3.css"/>
+  <script src="./weui/picker.js"></script>
+  <script src="./weui/select.js"></script>
+
+	</head>
+	
+	<script>
+        $(function(){
+        
+		        $("#d1").select({
+		        title: "选择身份",
+		        autoClose:true,
+		        
+		        items: ['学生','老师','管理员'],
+		        onChange: function(d) {
+		         $.alert("你选择了"+d.values);
+		        }
+		      });
+            $('#slide1').swipeSlide({
+                autoSwipe:true,//自动切换默认是
+                speed:3000,//速度默认4000
+                continuousScroll:true,//默认否
+                transitionType:'cubic-bezier(0.22, 0.69, 0.72, 0.88)',//过渡动画linear/ease/ease-in/ease-out/ease-in-out/cubic-bezier
+                lazyLoad:true,//懒加载默认否
+                firstCallback : function(i,sum,me){
+                    me.find('.dot').children().first().addClass('cur');
+                },
+                callback : function(i,sum,me){
+                    me.find('.dot').children().eq(i).addClass('cur').siblings().removeClass('cur');
+                }
+            });
+        });
+    </script>
+	<body ontouchstart  class="page-bg">
+		<main id="panel" class="panel" style="position:position:absolute;top:0;padding:0px;">
+		<header class="panel-header" style="display:none;">
+        	<button class="btn-hamburger js-slideout-toggle"></button>
+        	<h1 class="title" style="display:none"></h1>
+		</header>
+		<!-- 标题栏   -->
+			<div class="weui-header bg-blue" style="height:78px;background-color:#01164b">
+				<div class="weui-header-left">
+					<a class=" f-white">
+						<!--  <div class="weui-avatar-circle">
+							<img src="/library/image/myicon/book.svg" class="weui-avatar-url">
+						</div>-->
+					 </a>
+				</div>
+				<h1 class="weui-header-title" style="margin-top:15px">
+					<span class="">授课小助手</span>
+				</h1>
+				<!-- <div class="weui-header-right" style="margin-top:15px">
+					         <a class="icon icon-83 f-white"></a>
+					  </div> -->
+				</div>
+      <section><!--class="box"-->
+        <h2 class="box-title" style="display:none;"></h2>
+        <div id="mocha">
+					
+
+					<div class="weui_search_bar">
+
+						<div id="myDiv">
+							<div id="popDiv">
+								<table id="content_table" bgcolor="#FFFAFA" border="0"
+									cellspacing="0" cellpadding="0">
+									<tbody id="content_table_body">
+										<!-- 数据显示处 -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+					</div>
+					<!-- 轮播  -->
+					<div class="slide" id="slide1" style="position:relative;z-index:0;">
+						<ul>
+							<li>
+								<a href="#">
+								<img
+									src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
+									data-src="./img/1.jpg" alt="">
+								</a>
+								<div class="slide-desc">河海大学的轮播~</div>
+							</li>
+							<li>
+								<a href="#">
+								<img
+									src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
+									data-src="./img/2.jpg" alt="">
+								</a>
+								<div class="slide-desc">云课堂的轮播~</div>
+							</li>
+							<li>
+								<a href="#">
+								<img
+									src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
+									data-src="./img/3.jpg" alt="">
+								</a>
+								<div class="slide-desc">数据库的轮播~</div>
+							</li>
+						</ul>
+						<div class="dot">
+							<span></span> <span></span> <span></span>
+						</div>
+					</div>
+
+      </section>
+    </main>
+    
+         <div class="weui_grids"  >
+            <a href="javascript:;" class="weui_grid js_grid"  >
+                <div class="weui_grid_icon">
+                    <img src="./weui/images/icon_nav_button.png" alt="">
+                </div>
+                <p class="weui_grid_label">
+                    按钮
+                </p>
+            </a>
+            <a href="javascript:;" class="weui_grid js_grid" >
+                <div class="weui_grid_icon">
+                    <img src="./weui/images/icon_nav_cell.png" alt="">
+                </div>
+                <p class="weui_grid_label">
+                    列表出来看看
+                </p>
+            </a>
+            <a href="javascript:;" class="weui_grid js_grid" >
+                <div class="weui_grid_icon">
+                    <img src="./weui/images/icon_nav_toast.png" alt="">
+                </div>
+                <p class="weui_grid_label">
+                    QQ
+                </p>
+            </a>
+            <a href="javascript:;" class="weui_grid js_grid" >
+                <div class="weui_grid_icon">
+                    <img src="./weui/images/icon_nav_dialog.png" alt="">
+                </div>
+                <p class="weui_grid_label">
+                    弹出框
+                </p>
+            </a>
+            <a href="javascript:;" class="weui_grid js_grid" >
+                <div class="weui_grid_icon">
+                    <img src="./weui/images/icon_nav_progress.png" alt="">
+                </div>
+                <p class="weui_grid_label">
+                    进度条
+                </p>
+            </a>
+            <a href="javascript:;" class="weui_grid js_grid" >
+                <div class="weui_grid_icon">
+                    <img src="./weui/images/icon_nav_msg.png" alt="">
+                </div>
+                <p class="weui_grid_label">
+                    消息
+                </p>
+            </a>
+            <a href="javascript:;" class="weui_grid js_grid" >
+                <div class="weui_grid_icon">
+                    <img src="./weui/images/icon_nav_article.png" alt="">
+                </div>
+                <p class="weui_grid_label">
+                    文章
+                </p>
+            </a>
+            <a href="javascript:;" class="weui_grid js_grid" >
+                <div class="weui_grid_icon">
+                    <img src="./weui/images/icon_nav_actionSheet.png" alt="">
+                </div>
+                <p class="weui_grid_label">
+                    菜单
+                </p>
+            </a>
+            <a href="javascript:;" class="weui_grid js_grid" >
+                <div class="weui_grid_icon">
+                    <img src="./weui/images/icon_nav_icons.png" alt="">
+                </div>
+                <p class="weui_grid_label">
+                    图标
+                </p>
+            </a>
+            <a href="javascript:;" class="weui_grid js_grid" >
+                <div class="weui_grid_icon">
+                    <img src="./weui/images/icon_nav_panel.png" alt="">
+                </div>
+                <p class="weui_grid_label">
+                    面板
+                </p>
+            </a>
+            <a href="javascript:;" class="weui_grid js_grid" >
+                <div class="weui_grid_icon">
+                    <img src="./weui/images/icon_nav_tab.png" alt="">
+                </div>
+                <p class="weui_grid_label">
+                    Tab
+                </p>
+            </a>
+            <a href="javascript:;" class="weui_grid js_grid" >
+                <div class="weui_grid_icon">
+                    <img src="./weui/images/icon_nav_search_bar.png" alt="">
+                </div>
+                <p class="weui_grid_label">
+                    搜索
+                </p>
+            </a>
+        </div>
+    
+    <div class='page-hd'><a href="javascript:;" class="weui_btn weui_btn_primary open-popup " data-target="#popup">登录界面</a></div>
+    <div id="popup" class="weui-popup-container">
+		  <div class="weui-popup-modal">
+		  <div class="weui_article">
+		    <div class="weui_cells_title">登录界面</div>
+        <div class="weui_cells weui_cells_form">
+        
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><label class="weui_label">个人编号：</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input class="weui_input" type="number" pattern="[0-9]*" placeholder="请输入编号"/>
+                </div>
+            </div>
+            
+              <div class="weui_cell">
+                <div class="weui_cell_hd"><label class="weui_label">密码：</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input class="weui_input" type="password" placeholder="请输入密码"/>
+                </div>
+            </div>
+            
+              <div class="weui_cell">
+                <div class="weui_cell_hd"><label for="" class="weui_label">选择身份：</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input class="weui_input"  type="text"  value=""  id='d1'/>  
+               </div>
+              
+            </div> 
+            </div>
+ 
+		            
+		    </div>
+		    
+		    <p class='page-bd-15'><a class="weui_btn weui_btn_plain_primary " id="login">登录</a></p>
+		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  <p class='page-bd-15'><a href="javascript:;" class="weui_btn bg-orange-b  close-popup" id="close">关闭</a></p>
+		  </div>
+	 </div> 
+	</body>
+</html>
