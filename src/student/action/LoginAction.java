@@ -2,6 +2,7 @@ package student.action;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
@@ -43,13 +44,14 @@ public class LoginAction extends ActionSupport{
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		DBDAO db = new DBDAO();
+		//构建实体类，向DAO函数传递参数
 		Student student = new Student();
 		student.setStudentID(username);
 		student.setPassword(password);
+		//DAO的参数为实体类，返回值为ArrayList
 		ArrayList<Student> students = db.checkStudent(student);
 		// 检测是否有这个用户名
 					if (students != null && students.size() > 0) {
-						
 						Student stu = students.get(0);
 						// 检测密码
 						if (password.equals(stu.getPassword())) {
@@ -58,7 +60,7 @@ public class LoginAction extends ActionSupport{
 
 							// 输入session，保持登录状态
 							ServletActionContext.getRequest().getSession().setAttribute("studentID", stu.getStudentID());// 保存用户名
-							ServletActionContext.getRequest().getSession().setAttribute("studentName",stu.getStudentName());// 保存昵称
+							ServletActionContext.getRequest().getSession().setAttribute("studentName",stu.getStudentName());// 保存姓名
 						} else {
 							map.put("result", "密码输入错误");
 						}

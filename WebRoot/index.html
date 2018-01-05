@@ -19,9 +19,140 @@
 
 	</head>
 	
+	    <style type="text/css">
+   * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: 微软雅黑;
+    }
+
+
+    .menu {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 60px;
+        color: #474747;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+        background-color: #fff;
+    }
+
+    .subMenu {
+        width: 33%;
+        float: left;
+        cursor: pointer;
+    }
+
+    .middleMenu {
+        background-color: #E78170; 
+        border-radius: 30px;
+    }
+
+    .menu_name {
+        height: 20px;
+        width: 100%;
+        line-height: 26px;
+    }
+
+    img.menu_img {
+        height: 20px;
+        width: 28px;
+    }
+
+    img.middlemenu_img {
+        height: 30px;
+        width: 36px; 
+        margin-top: 5px;
+    }
+
+    img {
+        vertical-align: middle;
+        border: 0;
+    }
+
+    .active {
+        color: #FFA129;
+    }
+
+    .text-center {
+        text-align: center
+    }
+</style>
+	
 	<script>
         $(function(){
         
+		$.ajax({
+			 	//用户登录的action
+	            url:"student/CheckLoginAction",
+	            type:'POST', //POST
+	            //contentType:'application/json',
+	            data:{ },
+	            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+	            success:function(data){
+					var d = eval("("+data+")");//将数据转换成json类型，可以把data用alert()输出出来看看到底是什么样的结构
+                    //得到的d是一个形如{"key":"value","key1":"value1"}的数据类型，然后取值出来
+                    //alert(d.isSave);
+                    //alert(d.result);
+                    if(d.result=="未登录"){
+                    	//alert("抱歉您还未登录，请先登录");
+                    }else{
+                    	//alert("欢迎到来授课小助手"+" , "+d.result);	
+                    	$("#loginbutton").attr("data-target","");
+                    	$("#loginbutton").click(function(){
+                    		$.alert("亲爱的"+d.result+"，您已经登录", "登录状态");
+                    	});
+                    }
+	            }
+	       });
+	       
+	       //校园简介
+	       $("#conditions").click(function(){
+	       		window.location.href="./content/condition.html";
+	       });
+	        //院系机构
+	       $("#department").click(function(){
+	       		window.location.href="./content/department.html";
+	       });
+	        //专业信息
+	       $("#major").click(function(){
+	       		window.location.href="./content/major.html";
+	       });
+	        //若水新闻
+	       $("#news").click(function(){
+	       		window.location.href="./content/news.html";
+	       });
+	        //就业指导
+	       $("#employment").click(function(){
+	       		window.location.href="./content/employment.html";
+	       });
+	        //图书馆
+	       $("#library").click(function(){
+	       		window.location.href="./content/library.html";
+	       });
+	        //校园美景
+	       $("#scenery").click(function(){
+	       		window.location.href="./content/scenery.html";
+	       });
+	        //搜索
+	       $("#search").click(function(){
+	       		window.location.href="./content/search.html";
+	       });
+	        //联系我们
+	       $("#contact").click(function(){
+	       		window.location.href="./content/contact.html";
+	       });
+	       
+	       $("#homepage").click(function(){
+	       		window.location.href="index.html";
+	       });
+	       
+	       
 		        $("#identity").select({
 		        title: "选择身份",
 		        autoClose:true,
@@ -44,9 +175,11 @@
                     me.find('.dot').children().eq(i).addClass('cur').siblings().removeClass('cur');
                 }
             });
-        });
+	
+
+		});
     </script>
-	<body ontouchstart  class="page-bg">
+	<body ontouchstart  class="page-bg" >
 		<main id="panel" class="panel" style="position:position:absolute;top:0;padding:0px;">
 		<header class="panel-header" style="display:none;">
         	<button class="btn-hamburger js-slideout-toggle"></button>
@@ -127,7 +260,7 @@
     </main>
     
          <div class="weui_grids"  >
-            <a href="javascript:;" class="weui_grid js_grid"  >
+            <a class="weui_grid js_grid"  id="conditions">
                 <div class="weui_grid_icon">
                     <img src="./weui/images/icon_school.png" alt="">
                 </div>
@@ -135,7 +268,7 @@
                    校情总览
                 </p>
             </a>
-            <a href="javascript:;" class="weui_grid js_grid" >
+            <a class="weui_grid js_grid" id="department">
                 <div class="weui_grid_icon">
                     <img src="./weui/images/icon_department.png" alt="">
                 </div>
@@ -143,7 +276,7 @@
                     院系机构
                 </p>
             </a>
-            <a href="javascript:;" class="weui_grid js_grid" >
+            <a class="weui_grid js_grid"  id="major">
                 <div class="weui_grid_icon">
                     <img src="./weui/images/icon_nav_toast.png" alt="">
                 </div>
@@ -151,7 +284,7 @@
                     专业信息
                 </p>
             </a>
-            <a href="javascript:;" class="weui_grid js_grid" >
+            <a class="weui_grid js_grid" id="news" >
                 <div class="weui_grid_icon">
                     <img src="./weui/images/icon_nav_article.png" alt="">
                 </div>
@@ -159,15 +292,15 @@
                     若水新闻
                 </p>
             </a>
-            <a href="javascript:;" class="weui_grid js_grid" >
+            <a class="weui_grid js_grid"  id="employment">
                 <div class="weui_grid_icon">
-                    <img src="./weui/images/icon_nav_actionSheet.png" alt="">
+                    <img src="./weui/images/icon_employment.png" alt="">
                 </div>
                 <p class="weui_grid_label">
-                    菜单
+                    就业指导
                 </p>
             </a>
-            <a href="javascript:;" class="weui_grid js_grid" >
+            <a class="weui_grid js_grid"  id="library">
                 <div class="weui_grid_icon">
                     <img src="./weui/images/icon_library.png" alt="">
                 </div>
@@ -175,7 +308,7 @@
                     图书馆
                 </p>
             </a>
-            <a href="javascript:;" class="weui_grid js_grid" >
+            <a class="weui_grid js_grid"  id="scenery">
                 <div class="weui_grid_icon">
                     <img src="./weui/images/icon_scenery.png" alt="">
                 </div>
@@ -183,7 +316,7 @@
                     校园美景
                 </p>
             </a>
-                        <a href="javascript:;" class="weui_grid js_grid" >
+            <a class="weui_grid js_grid"  id="search">
                 <div class="weui_grid_icon">
                     <img src="./weui/images/icon_nav_search_bar.png" alt="">
                 </div>
@@ -191,7 +324,7 @@
                     搜索
                 </p>
             </a>
-            <a href="javascript:;" class="weui_grid js_grid" >
+            <a class="weui_grid js_grid"  id="contact">
                 <div class="weui_grid_icon">
                     <img src="./weui/images/icon_contact.png" alt="">
                 </div>
@@ -201,8 +334,25 @@
             </a>
 
         </div>
+        
+    <!--bottom-->
+    <div id="menu" class="menu">
+        <div id="loginbutton" class="subMenu text-center open-popup"  data-target="#popup">
+            <img class="menu_img" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTE1MTI0ODgxOTU2IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjE4NDYiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNODkzLjY3MjcyNyAxMDI0SDI3NC42MTgxODJjLTY5LjgxODE4MiAwLTEyNS42NzI3MjctNTUuODU0NTQ1LTEyNS42NzI3MjctMTI1LjY3MjcyN3YtMTI1LjY3MjcyOGg2NS4xNjM2MzZ2MTI1LjY3MjcyOGMwIDM3LjIzNjM2NCAyNy45MjcyNzMgNjUuMTYzNjM2IDY1LjE2MzYzNiA2NS4xNjM2MzZoNjE5LjA1NDU0NmMzNy4yMzYzNjQgMCA2NS4xNjM2MzYtMjcuOTI3MjczIDY1LjE2MzYzNi02NS4xNjM2MzZWMTMwLjMyNzI3M2MwLTM3LjIzNjM2NC0yNy45MjcyNzMtNjUuMTYzNjM2LTY1LjE2MzYzNi02NS4xNjM2MzdIMjYwLjY1NDU0NWMtNDEuODkwOTA5IDAtNjkuODE4MTgyIDI3LjkyNzI3My02OS44MTgxODEgNjAuNTA5MDkxdjEyNS42NzI3MjhIMTMwLjMyNzI3M1YxMjUuNjcyNzI3QzEzMC4zMjcyNzMgNTUuODU0NTQ1IDE4Ni4xODE4MTggMCAyNTYgMGg2MzcuNjcyNzI3Qzk2OC4xNDU0NTUgMCAxMDI0IDU1Ljg1NDU0NSAxMDI0IDEyNS42NzI3Mjd2NzY4YzAgNzQuNDcyNzI3LTYwLjUwOTA5MSAxMzAuMzI3MjczLTEzMC4zMjcyNzMgMTMwLjMyNzI3M3pNNjE5LjA1NDU0NSAzMjEuMTYzNjM2Yy0xMy45NjM2MzYtMTMuOTYzNjM2LTEzLjk2MzYzNi0zMi41ODE4MTggMC00Ni41NDU0NTQgMTMuOTYzNjM2LTEzLjk2MzYzNiAzMi41ODE4MTgtMTMuOTYzNjM2IDQ2LjU0NTQ1NSAwbDIxOC43NjM2MzYgMjE4Ljc2MzYzNmM0LjY1NDU0NSA0LjY1NDU0NSA5LjMwOTA5MSAxMy45NjM2MzYgOS4zMDkwOTEgMjMuMjcyNzI3cy00LjY1NDU0NSAxOC42MTgxODItOS4zMDkwOTEgMjMuMjcyNzI4bC0yMTguNzYzNjM2IDIxOC43NjM2MzZjLTEzLjk2MzYzNiAxMy45NjM2MzYtMzIuNTgxODE4IDEzLjk2MzYzNi00Ni41NDU0NTUgMC0xMy45NjM2MzYtMTMuOTYzNjM2LTEzLjk2MzYzNi0zMi41ODE4MTggMC00Ni41NDU0NTRsMTY3LjU2MzYzNy0xNjcuNTYzNjM3SDMyLjU4MTgxOGMtMTguNjE4MTgyIDAtMzIuNTgxODE4LTEzLjk2MzYzNi0zMi41ODE4MTgtMzIuNTgxODE4IDAtMTguNjE4MTgyIDEzLjk2MzYzNi0zMi41ODE4MTggMzIuNTgxODE4LTMyLjU4MTgxOGg3NTQuMDM2MzY0bC0xNjcuNTYzNjM3LTE1OC4yNTQ1NDZ6IiBmaWxsPSIjMzMzMzMzIiBwLWlkPSIxODQ3Ij48L3BhdGg+PC9zdmc+">
+            <div class="menu_name">登录</div>
+        </div>
+        <div id="homepage" class="subMenu text-center middleMenu" data-src="personal.html" style="height: 90%;">
+            <img class="middlemenu_img" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTE1MDUzMTY4ODMyIiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjY5MzAiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNMTAwNy4wNzIgNTQyLjQ4IDUxMi4wMTYgNzkuMTUyIDE2Ljk2IDU0MS4xMmMtOS42OCA5LjA0LTEwLjIyNCAyNC4yNC0xLjE2OCAzMy45MiA5LjA0IDkuNjggMjQuMjQgMTAuMjI0IDMzLjkyIDEuMTY4bDQ2Mi4yNzItNDMxLjM2IDQ2Mi4yODggNDMyLjY3MmM0LjY0IDQuMzM2IDEwLjUyOCA2LjQ4IDE2LjQgNi40OCA2LjQgMCAxMi44LTIuNTQ0IDE3LjUyLTcuNkMxMDE3LjI0OCA1NjYuNzIgMTAxNi43NTIgNTUxLjUzNiAxMDA3LjA3MiA1NDIuNDh6TTg1NiA1NTJjLTEzLjI0OCAwLTI0IDEwLjc1Mi0yNCAyNGwwIDM2OEw2NDAgOTQ0IDY0MCA2ODggMzg0IDY4OGwwIDI1NkwxOTIgOTQ0IDE5MiA1NzZjMC0xMy4yNDgtMTAuNzM2LTI0LTI0LTI0UzE0NCA1NjIuNzUyIDE0NCA1NzZsMCA0MTYgMjg4IDBMNDMyIDczNmwxNjAgMCAwIDI1NiAyODggMEw4ODAgNTc2Qzg4MCA1NjIuNzUyIDg2OS4yNDggNTUyIDg1NiA1NTJ6TTY4OCAyMDhsMTQ0IDAgMCAxMjhjMCAxMy4yNjQgMTAuNzUyIDI0IDI0IDI0Uzg4MCAzNDkuMjY0IDg4MCAzMzZMODgwIDE2MCA2ODggMTYwYy0xMy4yNDggMC0yNCAxMC43MzYtMjQgMjRTNjc0Ljc1MiAyMDggNjg4IDIwOHoiIHAtaWQ9IjY5MzEiIGZpbGw9IiNmZmZmZmYiPjwvcGF0aD48L3N2Zz4=" >
+
+        </div>
+        <div id="my" class="subMenu text-center">
+            <img class="menu_img" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTE1MDQ5NzI1MDY3IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjIzMTAiIGRhdGEtc3BtLWFuY2hvci1pZD0iYTMxM3guNzc4MTA2OS4wLmkxIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTY2Ni4xNDA5MzYgNTk4LjgzODI5NmM5OC4zODU5NTctNTQuNDY3MTggMTY1LjE1NDA0LTE1OS4zNDY3OTkgMTY1LjE1NDA0LTI3OS41NDMzMkM4MzEuMjk0OTc2IDE0My4yMzQxMzYgNjg4LjA1NzgwMyAwIDUxMiAwUzE5Mi43MDE5ODcgMTQzLjIzNDEzNiAxOTIuNzAxOTg3IDMxOS4yOTQ5NzZjMCAxMjAuMTk2NTIgNjYuNzY4MDgzIDIyNS4wNzYxMzkgMTY1LjE1NDA0IDI3OS41NDMzMkMxODQuMTYxMjEyIDY2Mi4wMDQxODggNTkuNzcwMjM2IDgyOC43NDM2NzggNTkuNzcwMjM2IDEwMjRoNjYuODE5NzE2YzAtMTk5LjUyMDYzNSAxNTIuMzk3NTQ5LTM2NC4xMDY3MDcgMzQ2LjkwMDYzMS0zODMuNDkwNWw3LjMyODkwOCA0MS44MzgyNTRINTQzLjY4MTY1N2w3LjMxOTc5Ni00MS43OTU3MzJjMTk0LjI2OTIxMyAxOS42MTE1ODcgMzQ2LjQwODU5NCAxODQuMDkxMzU1IDM0Ni40MDg1OTUgMzgzLjQ0NDk0MWg2Ni44MTk3MTZjLTAuMDAzMDM3LTE5NS4yNTMyODUtMTI0LjM5NDAxMy0zNjEuOTkyNzc1LTI5OC4wODg4MjgtNDI1LjE1ODY2N3pNMjU5LjUyMTcwMyAzMTkuMjk0OTc2QzI1OS41MjE3MDMgMTgwLjA3OTEzNSAzNzIuNzg0MTU5IDY2LjgxOTcxNiA1MTIgNjYuODE5NzE2czI1Mi40NzUyNiAxMTMuMjU5NDE5IDI1Mi40NzUyNiAyNTIuNDc1MjYtMTEzLjI1OTQxOSAyNTIuNDc1MjYtMjUyLjQ3NTI2IDI1Mi40NzUyNi0yNTIuNDc4Mjk3LTExMy4yNTk0MTktMjUyLjQ3ODI5Ny0yNTIuNDc1MjZ6IiBwLWlkPSIyMzExIiBmaWxsPSIjNzA3MDcwIj48L3BhdGg+PHBhdGggZD0iTTQ0Ni42MDE3MjIgOTMzLjY4NDA0Mmw2NS4xNDkyMjMgNDUuMTA2MzQ2VjcxMy40ODI3MDVoLTI4LjAxODcyMnpNNTEyLjI0OTA1NSA3MTMuNDgyNzA1djI2NS4zMDc2ODNsNjUuMTQ2MTg2LTQ1LjEwNjM0Ni0zNy4xMzA1MDEtMjIwLjIwMTMzN3oiIHAtaWQ9IjIzMTIiIGZpbGw9IiM3MDcwNzAiPjwvcGF0aD48L3N2Zz4=">
+            <div class="menu_name">我的</div>
+        </div>
+
+    </div>
     
-    <div class='page-hd'><a href="javascript:;" class="weui_btn weui_btn_primary open-popup " data-target="#popup">登录界面</a></div>
+   <!--   <div class='page-hd'><a id="loginbutton" class="weui_btn weui_btn_primary open-popup " data-target="#popup">登录界面</a></div>-->
     <div id="popup" class="weui-popup-container">
 		  <div class="weui-popup-modal">
 		  <div class="weui_article">
@@ -258,7 +408,7 @@
 	  		}
 	  		$.ajax({
 			 	//用户登录的action
-	            url:"student/LoginAction",
+	            url:identity+"/LoginAction",
 	            type:'POST', //POST
 	            //contentType:'application/json',
 	            data:{ 
@@ -272,15 +422,18 @@
                     //alert(d.isSave);
                     //alert(d.result);
                     if(d.result=="成功"){
-                    	alert("登录成功，跳转到首页");
+                    	$.alert("登录成功，跳转到首页");
                     	window.location.href="index.html";
                     }else{
-                    	alert(d.result);
+                    	$.alert(d.result);
                     }
                     
 	            }
 	       });
 	  	});
-		
+	  	
+
+	
+	
 	</script>
 </html>

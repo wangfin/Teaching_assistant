@@ -4,6 +4,8 @@ public class Student {
 	private String studentID;
 	private String studentName;
 	private String majorID;
+	private String password;
+	
 	public String getStudentID() {
 		return studentID;
 	}
@@ -28,7 +30,7 @@ public class Student {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	private String password;
+
 	
 
 }

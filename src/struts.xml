@@ -10,6 +10,14 @@
 		                <param name="root">result</param>  
 		        </result>  
 	   		</action>
+	   		
+	   		<!-- 检查学生是否已经登录 -->
+	        <action name="CheckLoginAction" class="student.action.CheckLoginAction" method="check">
+			   <result name="success" type="json">  
+		                <!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->  
+		                <param name="root">result</param>  
+		        </result>  
+	   		</action>
 	     
 	    </package>
 </struts>    
