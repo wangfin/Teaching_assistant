@@ -13,10 +13,11 @@
 	     
 	    </package>
 	    
-	    <package name="commom" namespace="/common" extends="json-default" >
+	    <!--  通用包，用来检查登录 -->
+	    <package name="universal" namespace="/universal" extends="json-default" >
 	   		
 	   		<!-- 检查是否已经登录 -->
-	        <action name="CheckLoginAction" class="common.action.CheckLoginAction" method="check">
+	        <action name="CheckLoginAction" class="universal.action.CheckLoginAction" method="check">
 			   <result name="success" type="json">  
 		                <!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->  
 		                <param name="root">result</param>  

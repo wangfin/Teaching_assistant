@@ -89,7 +89,7 @@
         
 		$.ajax({
 			 	//用户登录的action
-	            url:"commom/CheckLoginAction",
+	            url:"universal/CheckLoginAction",
 	            type:'POST', //POST
 	            //contentType:'application/json',
 	            data:{ },
@@ -108,7 +108,7 @@
                     		$.alert("亲爱的"+d.result+"，您已经登录", "登录状态");
                     	});
                     	$("#my").click(function(){
-                    		window.location.href="./"+d.identity+"index.html";
+                    		window.location.href="./"+d.identity+"/index.html";
                     	});
                     }
 	            }
