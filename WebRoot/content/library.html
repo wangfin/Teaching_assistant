@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>图书馆</title>
+	<meta name="viewport"content="width=device-width,initial-scale=1,user-scalable=0">
+	<link rel="stylesheet" href="../weui/style/weui.css" />
+	<link rel="stylesheet" href="../weui/style/weui2.css" />
+	<link rel="stylesheet" href="../weui/style/weui3.css" />
+	<script src="../weui/zepto.min.js"></script>
+	<script>
+	  $(function(){
+	//$("img").attr("src","../img/4.jpg");
+		  });    
+	      
+	      </script>
+	</head>
+	
+<body ontouchstart style="background-color: #f8f8f8;">
+ <div class="weui-weixin">
+<div class="weui-weixin-ui">
+  <!--页面开始-->
+    <div class="weui-weixin-page">
+   <h2 class="weui-weixin-title">图书馆</h2>
+   <div class="weui-weixin-info"><!--meta-->
+                     <span class="weui-weixin-em">最新消息</span>
+                      <em class="weui-weixin-em" >2018-01-06</em>
+                      <em class="weui-weixin-em">河海大学</em>
+                       <a class="weui-weixin-a weui-weixin-nickname" href="javascript:void(0);" >河海大学</a>
+                    </div><!--meta结束-->
+                    
+    <div class="weui-weixin-img"><!--图片开始-->
+    <img src="../img/7.jpg">
+    </div><!--图片结束-->
+                                        
+    <div class="weui-weixin-content"><!--内容-->
+                    <p> 河海大学常州校区图书馆创建于1986年9月，目前使用的馆舍落成启用于1996年5月，建筑面积为9300平方米</p>
+                    <p>2016年底图书馆藏书84万册、1100余种中外文期刊、30万册电子图书，图书馆内设7个不同功能的阅览室（共计阅览座位900多个）和7层全开架式固定书库，另有电子阅览室、文印中心以及具备远程网络直播功能的学术报告厅等现代化专用设施。</p>
+                    <p>常目前图书馆有正式职工32人，95%具有大专以上学历。全馆设有资源建设部、资源服务部、数字化技术部、信息服务部等四个业务部门。</p>
+                    <p> 三十年来，常州校区图书馆紧密配合校区的教学、科研和学科建设工作进行文献资源建设，逐步形成了以机械、电子、通信为主，兼有人文、经济管理等学科文献的多种类型、多种载体的综合性馆藏体系。目前，年文献资源建设经费220万元，年进中外文图书资源3万多册，中外文期刊1100余种，各类数据库11个。</p>
+                    <p>常州校区以“构建人文河海，建设和谐校园”的宗旨，打造人文、和谐、灵动的校园文化景观，构建“创新、励志、成才”立体化育人生态环境；以素质教育为核心，以“两月两节”为主线，构建全景式文化素质教育平台，将科学教育与人文教育有机结合，塑造学生“上善若水”的健康人格。</p>
+                    <img src="../img/6.jpg">
+                    <p>目前，图书馆采用汇文图书馆自动化集成管理系统，实现了校园网上24小时书目、借阅情况、参考咨询、征订文献、新书刊报道、常用软件下载等信息的查阅、检索和链接服务，并可通过远程登录访问图书馆的各类资源。</p>
+                    <p>图书馆贯彻执行“读者第一，服务至上”的办馆宗旨。1996年新馆启用以后，图书馆实行全天候式开馆，目前周开放时间达98小时；流通、阅览全面实现开架借阅服务，目前图书资料年流通量7万册，年阅览量近20万人次。</p>
+                    <p>大力发展信息服务，在常州地区首家开展科技查新、查收查引等服务。</p>
+                    <p>成立了“读者协会”这一学生社团，开展了新生入馆教育、新书推荐等工作，与读者建立了良性互动机制。着力开展书香校园建设，每年举办“纪念世界读书日”、“读书月”等系列活动 , 通过开展 “书香杯”征文、图书展销、“读者之星”的评选及表彰、读者座谈会等系列活动，加强了图书馆与读者的沟通、交流，丰富了学生的课外生活，营造出一个良好的读书氛围。</p>
+                    <p>图书馆在提供多层次文献信息服务的同时，还为加强科学管理，提高工作效率和服务质量，制定了严格的规章制度和业务操作流程。建馆以来，图书馆多次获得常州市、河海大学、校区先进集体、文明单位等荣誉称号。</p>
+                    </div><!--内容结束-->
+
+ <script>
+ $(function(){
+ $("img").addClass('weixin');
+  $('.weui-weixin-zan').click(function(){
+ if($(this).hasClass('zaned')){
+ $(this).removeClass('zaned');
+ var  val = $(this).next().html();
+ if(parseInt(val)==0){
+ var i=1;
+ }else{
+ var  i  =  parseInt(val)-1;
+ }
+  $(this).next().html(i);
+  
+ }else{
+ $(this).addClass('zaned');
+  var  val = $(this).next().html();
+  $(this).next().html(parseInt(val)+1);
+  //ajax操作
+ }
+ 
+ });
+ 
+ 
+ });
+ </script> 
+
+</div><!--页面结束-->
+
+   
+  </div>
+</div>        
+</body>
+</html>
+

@@ -89,7 +89,7 @@
         
 		$.ajax({
 			 	//用户登录的action
-	            url:"student/CheckLoginAction",
+	            url:"commom/CheckLoginAction",
 	            type:'POST', //POST
 	            //contentType:'application/json',
 	            data:{ },
@@ -106,6 +106,9 @@
                     	$("#loginbutton").attr("data-target","");
                     	$("#loginbutton").click(function(){
                     		$.alert("亲爱的"+d.result+"，您已经登录", "登录状态");
+                    	});
+                    	$("#my").click(function(){
+                    		window.location.href="./"+d.identity+"index.html";
                     	});
                     }
 	            }
@@ -408,7 +411,7 @@
 	  		}
 	  		$.ajax({
 			 	//用户登录的action
-	            url:identity+"/LoginAction",
+	            url:logid+"/LoginAction",
 	            type:'POST', //POST
 	            //contentType:'application/json',
 	            data:{ 
@@ -430,6 +433,12 @@
                     
 	            }
 	       });
+	       
+	      $("#my").click(function(){
+	      		window.location.href="./"+logid+"index.html";
+	      });
+	      
+	      
 	  	});
 	  	
 

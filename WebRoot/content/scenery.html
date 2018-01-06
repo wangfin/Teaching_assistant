@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>校园美景</title>
+	<meta name="viewport"content="width=device-width,initial-scale=1,user-scalable=0">
+	<link rel="stylesheet" href="../weui/style/weui.css" />
+	<link rel="stylesheet" href="../weui/style/weui2.css" />
+	<link rel="stylesheet" href="../weui/style/weui3.css" />
+	<script src="../weui/zepto.min.js"></script>
+	<script>
+	  $(function(){
+	//$("img").attr("src","../img/4.jpg");
+		  });    
+	      
+	      </script>
+	</head>
+	
+<body ontouchstart style="background-color: #f8f8f8;">
+ <div class="weui-weixin">
+<div class="weui-weixin-ui">
+  <!--页面开始-->
+    <div class="weui-weixin-page">
+   <h2 class="weui-weixin-title">校园美景</h2>
+   <div class="weui-weixin-info"><!--meta-->
+                     <span class="weui-weixin-em">最新消息</span>
+                      <em class="weui-weixin-em" >2018-01-06</em>
+                      <em class="weui-weixin-em">河海大学</em>
+                       <a class="weui-weixin-a weui-weixin-nickname" href="javascript:void(0);" >河海大学</a>
+     </div><!--meta结束-->
+                    
+                                        
+    <div class="weui-weixin-content"><!--内容-->
+                    <p> 操场</p>
+                    <p><img src="../img/scenery_1.jpg" class="img-border img-max img-radius"></p>
+                    <p>恐龙草坪</p>           
+                    <p><img src="../img/scenery_2.jpg"></p>
+                    <p>文体馆</p>           
+                    <p><img src="../img/scenery_3.jpg"></p>
+                    <p>雪中的师泽亭</p>           
+                    <p><img src="../img/scenery_4.jpg"></p>
+                    <p>若水路</p>           
+                    <p><img src="../img/scenery_5.jpg"></p>
+                    <p>若水广场</p>           
+                    <p><img src="../img/scenery_6.jpg"></p>
+    </div><!--内容结束-->
+
+ <script>
+ $(function(){
+ $("img").addClass('weixin');
+  $('.weui-weixin-zan').click(function(){
+ if($(this).hasClass('zaned')){
+ $(this).removeClass('zaned');
+ var  val = $(this).next().html();
+ if(parseInt(val)==0){
+ var i=1;
+ }else{
+ var  i  =  parseInt(val)-1;
+ }
+  $(this).next().html(i);
+  
+ }else{
+ $(this).addClass('zaned');
+  var  val = $(this).next().html();
+  $(this).next().html(parseInt(val)+1);
+  //ajax操作
+ }
+ 
+ });
+ 
+ 
+ });
+ </script> 
+
+</div><!--页面结束-->
+
+   
+  </div>
+</div>        
+</body>
+</html>
+

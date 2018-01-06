@@ -1,4 +1,4 @@
-package student.action;
+package commom.action;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +11,7 @@ import net.sf.json.JSONObject;
 
 public class CheckLoginAction extends ActionSupport{
 	/**
-	 * 检查学生是否已经登陆
+	 * 检查是否已经登陆
 	 */
 	private static final long serialVersionUID = 1L;
 	private String result;
@@ -27,13 +27,22 @@ public class CheckLoginAction extends ActionSupport{
 		// 检查session
 		// 查看是否有用户名
 		if(ServletActionContext.getRequest().getSession().getAttribute("studentID") !=null){
-			//System.out.println("已经登录");
 			String studentName = ServletActionContext.getRequest().getSession().getAttribute("studentName").toString();// 取出存取的姓名
 			map.put("result", studentName);
+			map.put("identity", "student");
+		}else if(ServletActionContext.getRequest().getSession().getAttribute("teacherID") !=null){
+			String teacherName = ServletActionContext.getRequest().getSession().getAttribute("teacherName").toString();// 取出存取的姓名
+			map.put("result", teacherName);
+			map.put("identity", "teacher");
+		}else if(ServletActionContext.getRequest().getSession().getAttribute("managerID") !=null){
+			String managerName = ServletActionContext.getRequest().getSession().getAttribute("managerName").toString();// 取出存取的姓名
+			map.put("result", managerName);
+			map.put("identity", "manager");
 		}else{
-			//System.out.println("没有登录");
 			map.put("result", "未登录");
+			map.put("identity", "");
 		}
+		
 		
 		// 将一个JAVA对象（这里是map对象），转化为一个JSON对象。需要import net.sf.json.JSONArray。
 		JSONObject json = JSONObject.fromObject(map);
