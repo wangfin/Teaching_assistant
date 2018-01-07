@@ -11,7 +11,7 @@ public class DBUtil {
 	private static final String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	//连接数据库的URL地址
 	private static final String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Teaching_assistant";
-	private static final String username = "root";
+	private static final String username = "sa";
 	private static final String password = "root";
 	//创建连接类
 	private static Connection conn = null;

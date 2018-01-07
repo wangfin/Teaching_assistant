@@ -19,6 +19,11 @@
 		color: #18B4ED;
 		margin-left: 5%;
 	}
+
+	.stuName{
+		width: 33.3%;
+		margin-left: 10%;
+	}
 </style>
 </head>
 <body ontouchstart style="background-color: #f8f8f8;">
@@ -33,8 +38,8 @@
 		<h3 class="cellTitle">课程信息</h3>
 		<div style="float: right;position: relative;bottom: 25px;">
 			<a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default" style="margin-right: 5px;">
-			修改
-		</a>
+				修改
+			</a>
 		</div>
 		
 		
@@ -83,7 +88,7 @@
 				<label for="" class="weui_label">上课时间</label>
 			</div>
 			<div class="weui_cell_bd weui_cell_primary">
-				<input class="weui_input" type="text"  value="1-2" id='coursetime'/>
+				<input class="weui_input" type="text"  value="1-2" id='coursetime' readonly="readonly" />
 			</div>
 		</div>
 
@@ -93,7 +98,7 @@
 				<label for="" class="weui_label">课程开始周</label>
 			</div>
 			<div class="weui_cell_bd weui_cell_primary">
-				<input class="weui_input" type="text"  value="3" id='startweek'/>
+				<input class="weui_input" type="text"  value="3" id='startweek' readonly="readonly"/>
 			</div>
 		</div>
 
@@ -102,42 +107,37 @@
 				<label for="" class="weui_label">课程结束周</label>
 			</div>
 			<div class="weui_cell_bd weui_cell_primary">
-				<input class="weui_input" type="text" value="9" id='finishweek'/>
+				<input class="weui_input" type="text" value="9" id='finishweek' readonly="readonly"/>
 			</div>
 		</div>
 
 		<br>
 		<h3 class="cellTitle">选课学生</h3>
 
-		<div class="weui_cell">
-			<div class="weui_cell_hd">
-				<label for="" class="weui_label">上课时间</label>
-			</div>
-			<div class="weui_cell_bd weui_cell_primary">
-				<input class="weui_input" type="text"  value="1-2" id='coursetime'/>
-			</div>
-		</div>
+		
+		<span class="stuName f14">马哲燚</span>
+		<span class="stuName f14">马哲燚</span>
+		<span class="stuName f14">马哲燚</span>
+		<span class="stuName f14">马哲燚</span>
+		<span class="stuName f14">马哲燚</span>
+		<span class="stuName f14">马哲燚</span>
+		<span class="stuName f14">马哲燚</span>
+		<span class="stuName f14">马哲燚</span>
+		<span class="stuName f14">马哲燚</span>
+		<span class="stuName f14">马哲燚</span>
+		<span class="stuName f14">马哲燚</span>
+		<span class="stuName f14">马哲燚</span>
+		<span class="stuName f14">马哲燚</span>
 
 
-		<div class="weui_cell">
-			<div class="weui_cell_hd">
-				<label for="" class="weui_label">课程开始周</label>
-			</div>
-			<div class="weui_cell_bd weui_cell_primary">
-				<input class="weui_input" type="text"  value="3" id='startweek'/>
-			</div>
-		</div>
 
-		<div class="weui_cell">
-			<div class="weui_cell_hd">
-				<label for="" class="weui_label">课程结束周</label>
-			</div>
-			<div class="weui_cell_bd weui_cell_primary">
-				<input class="weui_input" type="text" value="9" id='finishweek'/>
-			</div>
-		</div>
+
+		
 
 		<label for="weuiAgree" class="weui-agree"> 
+			<div class="weui_btn_area">
+				<a href="javascript:;" class="weui_btn bg-blue-b" style="color: #18b4ed;">打开多媒体</a>
+			</div>
 			<div class="weui_btn_area">
 				<a href="javascript:;" class="weui_btn bg-orange-b" style="color: #FF6600">点名</a>
 			</div>

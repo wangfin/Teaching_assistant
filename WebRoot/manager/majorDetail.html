@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>专业详情</title>
+
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="this is my page">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+	<link rel="stylesheet" href="../weui/style/weuix.min.css" />
+	<link rel="stylesheet" href="../weui/style/weui.css" />
+	<link rel="stylesheet" href="../weui/style/weui2.css" />
+	<link rel="stylesheet" href="../weui/style/weui3.css" />
+	
+	<script src="../weui/zepto.min.js"></script>
+	<script src="../weui/picker.js"></script>
+	<script src="../weui/select.js"></script>	
+	<style type="text/css">
+	.cellTitle{
+		color: #18B4ED;
+		margin-left: 5%;
+	}
+
+	.stuName{
+		width: 33.3%;
+		margin-left: 10%;
+	}
+</style>
+</head>
+<body ontouchstart style="background-color: #f8f8f8;">
+	<div class="weui_cells_title">
+		<h2>专业详情</h2>
+	</div>
+	
+
+
+	<div class="weui_cells weui_cells_form">
+		<br>
+		<h3 class="cellTitle">专业详情</h3>
+
+		
+		<div class="weui_cell">
+			<div class="weui_cell_hd">
+				<label class="weui_label">专业编号</label>
+			</div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" type="text" value="陆仁贾" 
+				id="majorID" />
+			</div>
+		</div>
+		
+		<div class="weui_cell">
+			<div class="weui_cell_hd">
+				<label class="weui_label">专业名称</label>
+			</div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" type="text" value="9527" id="majorName" style="width:85%;"/>
+			</div>
+		</div>
+		
+		<div class="weui_cell">
+			<div class="weui_cell_hd">
+				<label class="weui_label">所属学院</label>
+			</div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" type="text" value="9527" id="departmentName" style="width:85%;"/>
+			</div>
+		</div>
+
+
+		<label for="weuiAgree" class="weui-agree"> 
+			<div class="weui_btn_area">
+				<a href="javascript:;" class="weui_btn weui_btn_plain_primary" style="color: #04be02;">保存</a>
+			</div>
+			<div class="weui_btn_area">
+				<a href="javascript:deleteDepart();" class="weui_btn bg-orange-b" style="color: #FF6600;">删除</a>
+			</div>
+			<div class="weui_btn_area">
+				<!--返回并刷新-->
+				<a href="javascript:" onclick="self.location=document.referrer;" class="weui_btn weui_btn_plain_default">返回</a>
+			</div>
+		</div>
+
+
+	</body>
+	
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script>
+		var $j=jQuery.noConflict();
+	</script>
+	<script type="text/javascript">
+		
+		/**
+		*获取url中的参数
+		*/
+		function getQueryString(name) {  
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");  
+			var r = window.location.search.substr(1).match(reg);  
+			if (r != null) return unescape(r[2]);  
+			return null;  
+	    } 
+	
+		var majorID = getQueryString("majorID");
+		var department;
+		initAjax();
+		
+		
+		function initAjax() {
+			$j.ajax({    
+				type:'post',        
+				url:'/Teaching_assistant/manager/getSingleMajor.action',    
+				data:{  
+					majorID : majorID
+				},   
+				cache:false,      
+				success:function(data){ 
+					console.log(data);
+					var dataJSONObj = eval("(" + data+ ")");
+					$j.each(dataJSONObj, function(index, obj) {
+						getMajorInfo(obj.majorID, obj.majorName, 
+						obj.departmentID, obj.departmentName);
+					});
+					
+
+			  },
+			  error:function(){
+			  	console.log("请求数据失败");
+			  }    
+			});
+			
+			$j.ajax({    
+				type:'post',        
+				url:'/Teaching_assistant/manager/getAllDepartment.action',    
+				data:{  
+				},   
+				cache:false,      
+				success:function(data){ 
+					console.log(data);
+					data = data.replace(/departmentName/g, "title");
+					data = data.replace(/departmentID/g, "value");
+					department = eval("(" + data+ ")");
+					console.log(data);
+					
+					$("#departmentName").select({
+						title: "选择所属学院",
+						items: department,
+						onChange: function(d) {
+							//$.alert("你选择了"+d.values+d.titles);
+						}
+					});
+			  },
+			  error:function(){
+			  	console.log("请求数据失败");
+			  }    
+			});
+			
+		}
+		
+		
+		
+		function getMajorInfo(majorID, majorName, departmentID, departmentName) {
+			$j("#majorID").val(majorID);
+			$j("#majorName").val(majorName);
+			$j("#departmentName").val(departmentName);
+			//$j("#departmentID").val(departmentID);
+		}
+		
+		
+		
+	
+			
+		
+		
+		 
+		function updateDepart(departmentID, departmentName) {
+			$j.ajax({    
+				type:'post',        
+				url:'/Teaching_assistant/manager/getSingleDepartment.action',    
+				data:{  
+					departmentID:departmentID
+				},   
+				cache:false,      
+				success:function(data){ 
+					console.log(data);
+					var dataJSONObj = eval("(" + data+ ")");
+					$j.each(dataJSONObj, function(index, obj) {
+						getDepartInfo(obj.departmentID, obj.departmentName);
+					});
+			  },
+			  error:function(){
+			  	console.log("请求数据失败");
+			  }    
+			});
+		}
+		
+		function deleteDepart() {
+			$.confirm("您确定要删除吗?", "确认删除?", function() {
+	          $.toast("删除成功!");
+	        }, function() {
+	          //取消操作
+	        });
+		}
+	</script>
+	</html>

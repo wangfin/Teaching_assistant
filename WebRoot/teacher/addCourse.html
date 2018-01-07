@@ -22,8 +22,30 @@
 			$("#coursetime").select({
 				title: "上课时间",
 				autoClose:true,
-
-				items: ['1-2','3-4','6-7', '8-9', '10-12'],
+				multi: true,
+				split:',',
+				items:[
+					{title:'周一1-2',value:1},
+					{title:'周一3-4',value:2},
+					{title:'周一6-7',value:3},
+					{title:'周一8-9',value:4},
+					{title:'周二1-2',value:5},
+					{title:'周二3-4',value:6},
+					{title:'周二6-7',value:7},
+					{title:'周二8-9',value:8},
+					{title:'周三1-2',value:9},
+					{title:'周三3-4',value:10},
+					{title:'周三6-7',value:11},
+					{title:'周三8-9',value:12},
+					{title:'周四1-2',value:13},
+					{title:'周四3-4',value:14},
+					{title:'周四6-7',value:15},
+					{title:'周四8-9',value:16},
+					{title:'周五1-2',value:17},
+					{title:'周五3-4',value:18},
+					{title:'周五6-7',value:19},
+					{title:'周五8-9',value:20},
+				],
 				onChange: function(d) {
 					//$.alert("你选择了"+d.values);
 				}
