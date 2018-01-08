@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>联系我们</title>
+ <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+ <link rel="stylesheet" href="../weui/style/weui.css" />
+	<link rel="stylesheet" href="../weui/style/weui2.css" />
+	<link rel="stylesheet" href="../weui/style/weui3.css" />
+	<link rel="stylesheet" href="../weui/style/icon.css"/>
+	<script src="../weui/zepto.min.js"></script>
+	  <script src="../weui/fullpage.js"></script>
+ <style>
+   .page-wrap {
+    width: 100%;
+    height: 100%;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+}
+
+.page:first-child {
+    background-color: #CCC;
+}
+
+.page:nth-child(2) {
+    background-color: #87bdd0;
+}
+
+
+
+.arrow{
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    width: 33px;
+    height: 18px;
+    margin-left: -16px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAAAkBAMAAADP1/GcAAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAACnRSTlMA7THqZCykIw4N2Qp8/wAAAKJJREFUOMuF0yEOwkAQheEJhmArUUu4ARIFFgUSh+YUOM7R4PaU0FS8hD/5O6KdmX37ua2/2txrofaf5oHVtg+e2PU+NifGcx+cGH6hpkSbUkrMMSPmnBJAQAiSgyAkkhUiYSGSJiFIdskbQYQbIlnwSmbcwUgEkyAZgKAnktaQdERAEAEBJD9BQAC5TR9BrvWcCEEedTnoUz+eav0qq3ct1xewUzlrRHoptQAAAABJRU5ErkJggg==) no-repeat;
+    background-size: 33px auto;
+    opacity: 0;
+}
+
+.arrow-h{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: 33px;
+    height: 18px;
+    margin-top: -9px;
+    opacity: 0;
+}
+
+.arrow-h i{
+    display: block;
+    width: 33px;
+    height: 18px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAAAkBAMAAADP1/GcAAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAACnRSTlMA7THqZCykIw4N2Qp8/wAAAKJJREFUOMuF0yEOwkAQheEJhmArUUu4ARIFFgUSh+YUOM7R4PaU0FS8hD/5O6KdmX37ua2/2txrofaf5oHVtg+e2PU+NifGcx+cGH6hpkSbUkrMMSPmnBJAQAiSgyAkkhUiYSGSJiFIdskbQYQbIlnwSmbcwUgEkyAZgKAnktaQdERAEAEBJD9BQAC5TR9BrvWcCEEedTnoUz+eav0qq3ct1xewUzlrRHoptQAAAABJRU5ErkJggg==) no-repeat;
+    background-size: 33px auto;
+    -webkit-transform: rotate(-90deg);
+}
+
+.current .arrow {
+    -webkit-animation: swipeMoveTop 1.5s 1s ease infinite;
+}
+
+.current .arrow-h {
+    -webkit-animation: swipeMoveLeft 1.5s 1s ease infinite;
+}
+
+/*上滑提示*/
+@-webkit-keyframes swipeMoveTop {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 10px, 0);
+    }
+    70% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -10px, 0);
+    }
+}
+
+/*左滑提示*/
+@-webkit-keyframes swipeMoveLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(10px, 0, 0);
+    }
+    70% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(-10px, 0, 0);
+    }
+}
+
+@-webkit-keyframes slideToTop {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100px, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+
+
+
+
+/*自定义*/
+.title {
+    width: 100%;
+    text-align: center;
+    padding-top: 40px;
+    color: #000;
+    font-size: 18px;
+    opacity: 0;
+}
+
+.subtitle {
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    color: #000;
+    font-size: 16px;
+    opacity: 0;
+}
+        .current .title{
+            -webkit-animation: slideToTop .8s ease both;
+        }
+
+        .current .subtitle{
+            -webkit-animation: slideToTop .8s 0.3s ease both;
+        }
+</style>
+      <script>
+  $(function(){
+
+	  
+	  });    
+ 
+      </script>
+</head>
+
+<body ontouchstart >
+
+<div class="page-wrap">
+    <div class="page">
+        <div class="subtitle">授课小助手，一个方便的小工具。<br/>
+        管理员功能：院系管理、专业管理、课程管理、学生管理、教室管理等等<br/>
+        教师端功能：课程管理、查看自己所教课程、学生管理、上课刷脸点名、智能开锁<br/>
+        学生端功能：查看课表、选课、查看课程信息</div>
+        <div class="subtitle"><img src="../img/9.jpg" style="display: block; max-width:100%;height:100%;width:100%"></div>
+        <div class="arrow"></div>
+    </div>
+    <div class="page" style="-webkit-overflow-scrolling: touch;">
+        <div class="title" data-animation='{"name": "slideToTop", "duration": 800, "timing-function": "ease", "fill-mode": "both"}'>结语</div>
+        <div class="subtitle">还有许多功能未能实现，还有许多bug深藏其中，我们会继续努力完善它！！！<br>
+        <div class="subtitle"><img src="../img/5.jpg" style="display: block; max-width:100%;height:100%;width:100%"></div>
+        <br><br>
+   				<a class="weui_btn weui_btn_plain_default"  href="../index.html" >谢谢使用</a>
+        </div>
+    </div>
+    
+        
+</div>
+ <script>
+ var PageSlider =  new PageSlider({
+        pages: $('.page-wrap .page'),
+        animationPlayOnce: false,//翻页动画只执行一次
+        direction: 'v',//水平h  垂直v 修改类 arrow-h
+        gestureFollowing: 'true',      //可选，如果为 true，则开启手势跟随模式
+        //<div class="page" data-lock-next="true" data-lock-prev="true"></div>data-lock-next： 禁止往后滑 data-lock-prev： 禁止往前滑
+       /* onSwipeUp: function(){//上划回调
+            if(this.index === 0){
+                var page = $(this.pages).eq(0);
+                page.find('.double').show();
+                page.data('lock-next', false);
+            }
+        },
+        onchange: function(){//每一屏切换完成时的回调
+            if(this.prevIndex === 0){
+                var page = $(this.pages).eq(0);
+                page.find('.double').hide();
+                page.data('lock-next', true);
+            }
+        },*/
+    });
+  $('#btn').on('tap', function(){
+        PageSlider.next();
+    });   
+    </script>
+</body>
+</html>
+
