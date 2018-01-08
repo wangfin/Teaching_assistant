@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title>添加课程</title>
+	<title>我的课程</title>
 
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="this is my page">
@@ -101,5 +101,30 @@
 			</div>
 		</div>
 	</div>
+	
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	
+	<script>
+	function firstInit() {
+		$.ajax({    
+		    type:'post',        
+		    url:'',    
+		    data:{  
+		    },   
+		    cache:false,      
+		    success:function(data){ 
+		      console.log(data);
+		      var dataJSONObj = eval("(" + data+ ")");
+		      var competiotionName = dataJSONObj.CNA;
+		      var competitionID = dataJSONObj.CNO;
+		      addCompetition(competiotionName, competitionID);
+		    },
+		    error:function(){
+		    	console.log("请求数据失败");
+		    }    
+		});
+	}
+	
+	</script>
 </body>
 </html>

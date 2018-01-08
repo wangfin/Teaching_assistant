@@ -43,8 +43,32 @@
 		        </result>  
 	   		</action>
 	     
+	     	<action name="getAll" class="manager.action.DepartmentAction"></action>
 	    </package>
 	    
+
+	    <package name="manager" namespace="/manager" extends="json-default" >
+	        
+	        <!-- 获取所有学院信息 -->
+	     	<action name="getAllDepartment" class="manager.action.DepartmentAction" method="getAllDepartment">
+	     	</action>
+	     	
+	     	<!-- 获取单个学院信息 -->
+	     	<action name="getSingleDepartment" class="manager.action.DepartmentAction" method="getSingleDepartment">
+	     	</action>
+	     
+	     	<!-- 获取所有专业信息 -->
+	     	<action name="getAllMajor" class="manager.action.MajorAction" method="getAllMajor">
+	     	</action>
+	     	
+	     	<!-- 获取单个专业信息 -->
+	     	<action name="getSingleMajor" class="manager.action.MajorAction" method="getSingleMajor">
+	     	</action>
+	     	
+	    </package>
+	    
+	    
+
 	    <!--  通用包，用来检查登录 -->
 	    <package name="universal" namespace="/universal" extends="json-default" >
 	   		
