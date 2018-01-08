@@ -10,6 +10,38 @@
 		                <param name="root">result</param>  
 		        </result>  
 	   		</action>
+	   		
+	   		<!-- 学生查询课程信息 -->
+	        <action name="SearchCourseAction" class="student.action.SearchCourseAction" method="search">
+			   <result name="success" type="json">  
+		                <!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->  
+		                <param name="root">result</param>  
+		        </result>  
+	   		</action>
+	   		
+	   		<!-- 查看课程详细信息 -->
+	        <action name="CourseDetailAction" class="student.action.CourseDetailAction" method="search">
+			   <result name="success" type="json">  
+		                <!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->  
+		                <param name="root">result</param>  
+		        </result>  
+	   		</action>
+	   		
+	   		<!-- 查看学生课表 -->
+	        <action name="CourseTableAction" class="student.action.CourseTableAction" method="table">
+			   <result name="success" type="json">  
+		                <!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->  
+		                <param name="root">result</param>  
+		        </result>  
+	   		</action>
+	   		
+	   		<!-- 查看学生课表 -->
+	        <action name="ShowCoursesAction" class="student.action.ShowCoursesAction" method="show">
+			   <result name="success" type="json">  
+		                <!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->  
+		                <param name="root">result</param>  
+		        </result>  
+	   		</action>
 	     
 	    </package>
 	    
