@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title>专业详情</title>
+	<title>老师详情</title>
 
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="this is my page">
@@ -31,41 +31,41 @@
 </head>
 <body ontouchstart style="background-color: #f8f8f8;">
 	<div class="weui_cells_title">
-		<h2>专业详情</h2>
+		<h2>老师详情</h2>
 	</div>
 	
 
 
 	<div class="weui_cells weui_cells_form">
 		<br>
-		<h3 class="cellTitle">专业详情</h3>
+		<h3 class="cellTitle">老师详情</h3>
 
 		
 		<div class="weui_cell">
 			<div class="weui_cell_hd">
-				<label class="weui_label">专业编号</label>
+				<label class="weui_label">老师编号</label>
 			</div>
 			<div class="weui_cell_bd weui_cell_primary">
 				<input class="weui_input" type="text" value="陆仁贾" 
-				id="majorID" readonly="readonly"/>
+				id="teacherID" readonly="readonly"/>
 			</div>
 		</div>
 		
 		<div class="weui_cell">
 			<div class="weui_cell_hd">
-				<label class="weui_label">专业名称</label>
+				<label class="weui_label">老师名称</label>
+			</div>
+			<div class="weui_cell_bd weui_cell_primary">
+				<input class="weui_input" type="text" value="9527" id="teacherName" style="width:85%;"/>
+			</div>
+		</div>
+		
+		<div class="weui_cell">
+			<div class="weui_cell_hd">
+				<label class="weui_label">所属专业</label>
 			</div>
 			<div class="weui_cell_bd weui_cell_primary">
 				<input class="weui_input" type="text" value="9527" id="majorName" style="width:85%;"/>
-			</div>
-		</div>
-		
-		<div class="weui_cell">
-			<div class="weui_cell_hd">
-				<label class="weui_label">所属学院</label>
-			</div>
-			<div class="weui_cell_bd weui_cell_primary">
-				<input class="weui_input" type="text" value="9527" id="departmentName" style="width:85%;"/>
 			</div>
 		</div>
 
@@ -102,27 +102,27 @@
 			return null;  
 	    } 
 	
-		var majorID = getQueryString("majorID");
+		var teacherID = getQueryString("teacherID");
 		var department;
 		initAjax();
+		
 		
 		function initAjax() {
 			$j.ajax({    
 				type:'post',        
-				url:'/Teaching_assistant/manager/getSingleMajor.action',    
+				url:'/Teaching_assistant/manager/getSingleTeacher.action',    
 				data:{  
-					majorID : majorID
+					teacherID : teacherID
 				},   
 				cache:false,      
 				success:function(data){ 
-					//console.log(data);
+					console.log(data);
 					var dataJSONObj = eval("(" + data+ ")");
 					$j.each(dataJSONObj, function(index, obj) {
-						getMajorInfo(obj.majorID, obj.majorName, 
-						obj.departmentID, obj.departmentName);
+						getTeacherInfo(obj.teacherID, obj.teacherName, 
+						obj.majorName, obj.majorID);
 					});
 					
-
 			  },
 			  error:function(){
 			  	console.log("请求数据失败");
@@ -131,20 +131,17 @@
 			
 			$j.ajax({    
 				type:'post',        
-				url:'/Teaching_assistant/manager/getAllDepartment.action',    
+				url:'/Teaching_assistant/manager/getAllMajor.action',    
 				data:{  
 				},   
 				cache:false,      
 				success:function(data){ 
 					//console.log(data);
-					data = data.replace(/departmentName/g, "title");
-					data = data.replace(/departmentID/g, "value");
-					department = eval("(" + data+ ")");
-					console.log(data);
-					
-					$("#departmentName").select({
-						title: "选择所属学院",
-						items: department,
+					majors = eval("(" + data+ ")");
+					majors = jsonUtil(majors);
+					$("#majorName").select({
+						title: "选择所属专业",
+						items: majors,
 						onChange: function(d) {
 							//$.alert("你选择了"+d.values+d.titles);
 						}
@@ -157,28 +154,45 @@
 			
 		}
 		
-		
-		function getMajorInfo(majorID, majorName, departmentID, departmentName) {
-			$j("#majorID").val(majorID);
+		function getTeacherInfo(teacherID, teacherName, majorName, majorID) {
+			$j("#teacherID").val(teacherID);
+			$j("#teacherName").val(teacherName);
 			$j("#majorName").val(majorName);
-			$j("#departmentName").val(departmentName);
-			$j("#departmentName").attr("data-values", departmentID);
+			$j("#majorName").attr("data-values", majorID);
+			//$j("#departmentID").val(departmentID);
 		}
+		
+		/**
+		*将专业的json提取关键字
+		*/
+		function jsonUtil(majorJSONARR) { 
+			var majorstr = "[]";
+			var majorsJSON = eval('('+majorstr+')');
+			$j.each(majorJSONARR, function(index, obj) {
+				var major = {
+					"title" : obj.majorName,
+					"value" : obj.majorID
+				};
+				majorsJSON.push(major);
+			});
+			return majorsJSON;
+		}
+		
 		
 		function update() {
-			var majorName = $j("#majorName").val();
-			var departmentID = $j("#departmentName").attr("data-values");
-			updateMajor(majorID, majorName, departmentID);
+			var teacherName = $j("#teacherName").val();
+			var majorID = $j("#majorName").attr("data-values");
+			updateTeacher(teacherID, teacherName, majorID);
 		}
-		 
-		function updateMajor(majorID, majorName, departmentID) {
+		
+		function updateTeacher(teacherID, teacherName, majorID) {
 			$j.ajax({    
 				type:'post',        
-				url:'/Teaching_assistant/manager/updateSingleMajor.action',    
+				url:'/Teaching_assistant/manager/updateSingleTeacher.action',    
 				data:{  
-					majorID : majorID,
-					majorName : majorName,
-					departmentID : departmentID
+					teacherID : teacherID,
+					teacherName : teacherName,
+					majorID : majorID
 					
 				},   
 				cache:false,      

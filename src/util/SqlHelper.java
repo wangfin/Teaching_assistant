@@ -70,8 +70,35 @@ public class SqlHelper
 		}
 		catch(SQLException e)
 		{
+			e.printStackTrace();
 			System.out.print("错误");
 		}
 		return null;
+	}
+	
+	/**
+	 * 执行修改语句
+	 * @param sqlstr
+	 * @return 返回值为影响了多少行
+	 */
+	@SuppressWarnings("finally")
+	public int executeUpdate(String sqlstr) {
+		Statement stmt = null;
+		
+		int result = 0;
+		
+		try {
+			//得到连接
+			ct=DBUtil.getConnection();
+			//ps=ct.prepareStatement(sqlstr);
+			stmt = ct.createStatement();
+			//创建结果集
+			result = stmt.executeUpdate(sqlstr);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			return result;
+		}
+		
 	}
 }

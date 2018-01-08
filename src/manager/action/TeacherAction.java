@@ -1,7 +1,6 @@
 package manager.action;
 
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,16 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.opensymphony.xwork2.ActionSupport;
-
 import manager.dao.ManagerDAO;
-import manager.entity.Department;
-import manager.entity.Major;
+import manager.entity.Teacher;
 import net.sf.json.JSONArray;
 
-public class MajorAction extends ActionSupport{
-
-	public void getAllMajor() throws Exception {
+public class TeacherAction {
+	
+	public void getAllTeacher() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		request.setCharacterEncoding("utf-8");
@@ -26,42 +22,42 @@ public class MajorAction extends ActionSupport{
 		PrintWriter out = response.getWriter();
 		
 		ManagerDAO managerDAO = new ManagerDAO();
-		ArrayList<Major> majors = managerDAO.getAllMajor();
+		ArrayList<Teacher> teachers = managerDAO.getAllTeacher();
 		
-		out.write(JSONArray.fromObject(majors).toString());
+		out.write(JSONArray.fromObject(teachers).toString());
 		out.flush();
 		out.close();
 	}
 	
-	public void getSingleMajor() throws Exception {
+	public void getSingleTeacher() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		
-		String majorID = request.getParameter("majorID");
+		String teacherID = request.getParameter("teacherID");
 		
 		ManagerDAO managerDAO = new ManagerDAO();
-		ArrayList<Major> majors = managerDAO.getSingleMajor(majorID);
+		ArrayList<Teacher> teachers = managerDAO.getSingleTeacher(teacherID);
 		
-		out.write(JSONArray.fromObject(majors).toString());
+		out.write(JSONArray.fromObject(teachers).toString());
 		out.flush();
 		out.close();
 	}
 	
-	public void updateSingleMajor() throws Exception {
+	public void updateSingleTeacher() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		
+		String teacherName = request.getParameter("teacherName");
+		String teacherID = request.getParameter("teacherID");
 		String majorID = request.getParameter("majorID");
-		String majorName = request.getParameter("majorName");
-		String departmentID = request.getParameter("departmentID");
 		
 		ManagerDAO managerDAO = new ManagerDAO();
-		String result = managerDAO.updateSingleMajor(majorID, majorName, departmentID);
+		String result = managerDAO.updateSingleTeacher(teacherID, teacherName, majorID);
 		
 		PrintWriter out = response.getWriter();
 		out.write(result);

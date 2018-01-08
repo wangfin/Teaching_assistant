@@ -24,6 +24,10 @@
 	     	<!-- 获取单个学院信息 -->
 	     	<action name="getSingleDepartment" class="manager.action.DepartmentAction" method="getSingleDepartment">
 	     	</action>
+	     	
+	     	<!-- 更新单个学院信息 -->
+	     	<action name="updateSingleDepartment" class="manager.action.DepartmentAction" method="updateSingleDepartment">
+	     	</action>
 	     
 	     	<!-- 获取所有专业信息 -->
 	     	<action name="getAllMajor" class="manager.action.MajorAction" method="getAllMajor">
@@ -33,9 +37,38 @@
 	     	<action name="getSingleMajor" class="manager.action.MajorAction" method="getSingleMajor">
 	     	</action>
 	     	
+	     	<!-- 更新单个专业信息 -->
+	     	<action name="updateSingleMajor" class="manager.action.MajorAction" method="updateSingleMajor">
+	     	</action>
+	     	
+	     	<!-- 获取所有老师信息 -->
+	     	<action name="getAllTeacher" class="manager.action.TeacherAction" method="getAllTeacher">
+	     	</action>
+	     	
+	     	<!-- 获取单个老师信息 -->
+	     	<action name="getSingleTeacher" class="manager.action.TeacherAction" method="getSingleTeacher">
+	     	</action>
+	     	
+	     	<!-- 更新单个老师信息 -->
+	     	<action name="updateSingleTeacher" class="manager.action.TeacherAction" method="updateSingleTeacher">
+	     	</action>
+	     	
+	     	<!-- 获取所有教室信息 -->
+	     	<action name="getAllClassroom" class="manager.action.ClassroomAction" method="getAllClassroom">
+	     	</action>
+	     	
+	     	<!-- 获取单个教室信息 -->
+	     	<action name="getSingleClassroom" class="manager.action.ClassroomAction" method="getSingleClassroomr">
+	     	</action>
+	     	
 	    </package>
 	    
-	    
+	    <package name="teacher" namespace="/teacher" extends="json-default" >
+	        
+	        <!-- 新增单个课程 -->
+	     	<action name="insertSingleCourse" class="teacher.action.TeacherAction" method="insertSingleCourse">
+	     	</action>
+	    </package>
 
 	    <!--  通用包，用来检查登录 -->
 	    <package name="universal" namespace="/universal" extends="json-default" >

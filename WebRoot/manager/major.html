@@ -30,15 +30,20 @@
 </head>
 <body ontouchstart style="background-color: #f8f8f8;" id="bodyroot">
 
+	<div style="float: right;position: absolute;right: 5px; top:85px; z-index:99;">
+		<a href="javascript:;" class="weui_btn weui_btn_plain_primary" style="margin-right: 5px;">
+			新增
+		</a>
+	</div>
 	<div class="weui_panel">
 		
 		<span class="weui_panel_hd">
 			<a href="index.html">
 				<img class="backIco" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTE1MDY0NDU0OTk0IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEzMzcgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjMzMDkiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjYxLjEzMjgxMjUiIGhlaWdodD0iMjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwvc3R5bGU+PC9kZWZzPjxwYXRoIGQ9Ik0xMjQ2LjM5MDcxMSA4NDIuNjM5Mjc1Yy01Ni4wMTk3NDQtNTcuMTI5OTA3LTEzMi43NjQyMzYtMTU1LjUwNDY3MS0yMjcuMjIwMTc2LTE5Ny40ODYyMjYtMTA4LjI1MzY4LTQ0LjkwNzg4My0yMjkuMDQxNDU3LTg0Ljc5NzAxLTM3My4xMjIxOTMtODQuNzk3MDEtMjguMDY2MTQ4IDAuMDQ2MDQ0LTUwLjgwMTQ2NyAyMi43ODY0NzktNTAuODUyNjI3IDUwLjg1MjYyNnYxOTIuMjIxOTA1bC00NzUuMTM5NTE5LTM0NC4yNTI4NCA0NzUuMTM5NTE5LTM0Ni4wODk0N1YzMjAuNTE0NzkzYzAgMTMuNzE1ODg0IDUuNjc4NzE0IDI3LjA4Mzg4NCAxNS41NTI1MTQgMzYuNjA5Nzk5IDEwLjA0Nzc0MiA5LjYxMjg4NiAyNS40MjYzMTMgMTQuNDE2NzcxIDM2Ljk1NzY4MyAxNC4xNTU4NTZsNy44NjMyMjgtMC4wODY5NzFjNDguMTQxMTY4IDAgMzIzLjM2NDM4MiAyMy44MzAxMzQgNDczLjc5NDAyMyAyMTcuOTkwOTg3IDQ4Ljc2NTMxNSA2NS44MTE2ODkgOTEuMjQ4MjM0IDE2Mi4yNDIzODkgMTE3LjE5NjM3NSAyNTMuNjMzODdsLTAuMTY4ODI3LTAuMTc5MDU5bS0xMDcuNzkzMjQzLTM2NS4zNjY0MDFjLTc3LjA5NzQ5My03OC4zMDk5NzUtMTc3LjIwNjU2Ny0xMzQuMTc2MjQxLTI5Ny40OTgwOTctMTY2LjA2NDAwOWE4MjkuMTQzMzc3IDgyOS4xNDMzNzcgMCAwIDAtMTYwLjgyMDE1Mi0yNi4wNzYwNFY0Ni45Njk2MTRhNDYuNzM0MjggNDYuNzM0MjggMCAwIDAtMjUuNzUzNzM0LTQxLjczNTk4OSA0Ni4yNjM2MTIgNDYuMjYzNjEyIDAgMCAwLTQ4LjkyMzkxIDMuODcyNzgxTDM5LjY3NDI1NyA0MjEuMTYxMDQzYTQ3LjA2NjgxNyA0Ny4wNjY4MTcgMCAwIDAgMC4xNTg1OTUgNzUuOTcxOTgybDU2NS45MzI0MzMgNDEwLjEyMDgwNGE0Ni44MzE0ODMgNDYuODMxNDgzIDAgMCAwIDc0LjYwMDkwNi0zNy45Mzk5NDd2LTIyMS42ODk4MjVjMTkwLjI4ODA3MiA4LjIzNjY5MyAzNDIuNTQ0MTEgNjcuMDA4ODIzIDQ0MC43OTYwOTEgMTcwLjM0NjA2NyA3Ny45ODc2NyA4Mi4xMDYwMTYgOTcuMTIxMzU0IDE2NS4xNzg5NDkgOTcuODQ3ODIgMTY4LjMyNTI2M2E0Ni45Nzk4NDYgNDYuOTc5ODQ2IDAgMCAwIDQ2LjAxODA0NiAzNy42OTk0OTdsNC4yMDAyMDItMC4xNjM3MTFhNDYuOTg0OTYyIDQ2Ljk4NDk2MiAwIDAgMCA0Mi43ODk4NzYtNDYuMDE4MDQ1YzMuNDYzNTA0LTIxMS41MTkzLTU0LjgyMjYxLTM3OS43Njc4MjMtMTczLjQyMDc1OC01MDAuNTQwMjU0IiBmaWxsPSIjOGE4YThhIiBwLWlkPSIzMzEwIj48L3BhdGg+PC9zdmc+">
 			</a>
-			<span class="f35" style="margin-top : 20px;">专业管理</span>
-
+			<span class="f35" style="margin-top : 20px;">专业管理</span>		
 		</span>
+		
 	</div>
 	
 
@@ -53,18 +58,23 @@
 				},   
 				cache:false,      
 				success:function(data){ 
-					console.log(data);
+					//console.log(data);
 					var dataJSONObj = eval("(" + data+ ")");
 					$.each(dataJSONObj, function(index, obj) {
 						addDepartDom(obj.departmentID, 
 						obj.departmentName);
 					});
+					initAjax2();
 			  },
 			  error:function(){
 			  	console.log("请求数据失败");
 			  }    
 			});
 		
+			
+		}
+
+		function initAjax2(){
 			$.ajax({    
 				type:'post',        
 				url:'/Teaching_assistant/manager/getAllMajor.action',    
@@ -72,7 +82,7 @@
 				},   
 				cache:false,      
 				success:function(data){ 
-					console.log(data);
+					//console.log(data);
 					var dataJSONObj = eval("(" + data+ ")");
 					$.each(dataJSONObj, function(index, obj) {
 						addMajorDom(obj.majorID, obj.majorName,
@@ -82,11 +92,8 @@
 			  error:function(){
 			  	console.log("请求数据失败");
 			  }    
-			});
-			
-			
+			});	
 		}
-
 		
 		function addDepartDom(departmentID, departmentName) {
 			var div1 = $("<div class='weui_panel'></div>");

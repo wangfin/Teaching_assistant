@@ -46,7 +46,7 @@
 			</div>
 			<div class="weui_cell_bd weui_cell_primary">
 				<input class="weui_input" type="text" value="陆仁贾" 
-				id="departmentID" />
+				id="departmentID" readonly="readonly"/>
 			</div>
 		</div>
 		
@@ -62,7 +62,7 @@
 
 		<label for="weuiAgree" class="weui-agree"> 
 			<div class="weui_btn_area">
-				<a href="javascript:;" class="weui_btn weui_btn_plain_primary" style="color: #04be02;">保存</a>
+				<a href="javascript:update();" class="weui_btn weui_btn_plain_primary" style="color: #04be02;">保存</a>
 			</div>
 			<div class="weui_btn_area">
 				<a href="javascript:deleteDepart();" class="weui_btn bg-orange-b" style="color: #FF6600;">删除</a>
@@ -120,20 +120,28 @@
 			$j("#departmentID").val(departmentID);
 		}
 		 
+		function update() {
+			var departmentName = $j("#departmentName").val();
+			updateDepart(departmentID, departmentName);
+		}
+		
 		function updateDepart(departmentID, departmentName) {
 			$j.ajax({    
 				type:'post',        
-				url:'/Teaching_assistant/manager/getSingleDepartment.action',    
+				url:'/Teaching_assistant/manager/updateSingleDepartment.action',    
 				data:{  
-					departmentID:departmentID
+					departmentID:departmentID,
+					departmentName:departmentName
 				},   
 				cache:false,      
 				success:function(data){ 
 					console.log(data);
-					var dataJSONObj = eval("(" + data+ ")");
-					$j.each(dataJSONObj, function(index, obj) {
-						getDepartInfo(obj.departmentID, obj.departmentName);
-					});
+					if(data == "SUCCESS") {
+						$.toast("操作成功");
+						//reload();
+					} else if(data == "FAILURE") {
+						$.toast("操作失败", "forbidden");
+					}
 			  },
 			  error:function(){
 			  	console.log("请求数据失败");
