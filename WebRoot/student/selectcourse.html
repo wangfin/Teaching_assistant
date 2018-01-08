@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>选择课程页面</title>
+ <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+   <link rel="stylesheet" href="../weui/style/weui.css"/>
+  <link rel="stylesheet" href="../weui/style/weui2.css"/>
+  <link rel="stylesheet" href="../weui/style/weui3.css"/>
+  <link rel="stylesheet" href="../weui/style/icon.css"/>
+   <script src="../weui/zepto.min.js"></script>
+      <script>   
+function choose(courseid) {
+	        $.actions({
+	          title: "选择操作",
+	          onClose: function() {
+	            console.log("close");
+	          },
+	          actions: [
+	            {
+	              text: "选择课程",
+	              className: "color-primary",
+	              onClick: function() {
+	                $.alert("选课成功");
+	              }
+	            },
+	            {
+	              text: "查看课程信息",
+	              className: "color-warning",
+	              onClick: function() {
+	                	window.location.href="coursedetail.html?courseid="+courseid;
+	              }
+	            }
+	           
+	          ]
+	        });
+        }
+      
+       $(function(){
+			$.ajax({
+			 	//用户登录的action
+	            url:"ShowCoursesAction",
+	            type:'POST', //POST
+	            //contentType:'application/json',
+	            data:{},
+	            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+	            success:function(data){
+					var d = eval("("+data+")");//将数据转换成json类型，可以把data用alert()输出出来看看到底是什么样的结构
+                    //得到的d是一个形如{"key":"value","key1":"value1"}的数据类型，然后取值出来
+                    //alert(d.isSave);
+                    //alert(d.result);
+                    if(d.size > 0){
+	                   for(var i = 0 ; i < d.size; i = i+2){
+		                   $("#content").append(
+		                               '<div class="weui_panel_bd">'+
+							                '<div class="weui_media_box weui_media_text">'+
+							                   '<h4 class="weui_media_title">'+d.result[i].courseName+'</h4>'+
+							                    '<p class="weui_media_desc">授课老师：'+d.result[i].teacherName+'</p>'+
+							                '</div>'+
+							           '</div>'+
+							           '<a  class="weui_panel_ft" onclick="choose('+d.result[i].courseID+')">点击选课</a>'
+		                   );
+	                   }
+                   }else{
+                   		$.alert("抱歉，没有可选的课程");
+                   }
+                   
+	            }
+	       });
+		});	  
+      
+
+      </script>
+</head>
+
+<body ontouchstart style="background-color: #f8f8f8;">
+ <div class="weui-weixin">
+<div class="weui-weixin-ui">
+        <div class="weui-header " style="background-color: #60a3c3;"> 
+	  <div class="weui-header-left"> <a class="icon icon-109 f-white" href="index.html">返回</a>  </div>
+	   <h1 class="weui-header-title">选课系统</h1>
+	    </div>
+	    
+	     <!-- <div class="page-bd-15">
+	        <a href="javascript:;" class="weui_btn weui_btn_primary" id="act">操作表</a> -->
+	        <div class="weui_panel weui_panel_access"  id="act">
+		        <div class="weui_panel_bd" id="content">
+						
+						</div>
+		    		</div>
+	    	</div>
+    </div>
+</body>
+</html>

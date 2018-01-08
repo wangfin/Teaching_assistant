@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="../weui/style/weui.css"/>
+  <link rel="stylesheet" href="../weui/style/weui2.css"/>
+  <link rel="stylesheet" href="../weui/style/weui3.css"/>
+  <link rel="stylesheet" href="../weui/style/icon.css"/>
+   <script src="../weui/zepto.min.js"></script>
+    <style>
+    /*课程表*/
+    .course_table {
+        width: 100%;
+        border-spacing: 0;
+    }
+    
+    .course_table th {
+        height: 2.5em;
+        background: #f3f8f8;
+        color: #6d8498;
+        font-weight: 400;
+        font-size: 0.95em;
+    }
+    
+    .course_table td {
+        font-size: 0.925em;
+        height: 3em;
+        border-bottom: 1px dashed #eee;
+        text-align: center;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    
+    .course_table tr td:first-child {
+        background: #f3f8f8;
+        color: #698196;
+        border-bottom: none;
+    }
+    
+    
+    .course_all {
+        padding-bottom: 0.5em;
+    }
+    
+    .yuwen, .shuxue, .yingyu, .wuli, .huaxue, .shengwu, .lishi, .jisuanji,
+        .meishu, .tiyu, .dili, .yinyue, .dele {
+        font-size: 0.925em;
+        background: #adbeff;
+        color: #FFF;
+        width: 3em;
+        height: 100%;
+        padding: 3px 0;
+        box-sizing: border-box;
+        margin: 0 auto;
+        border-radius: 0.5em;
+        line-height: 2em;
+        background-url: none;
+    }
+    
+    .shuxue {
+        background: #ff9e9f;
+    }
+    
+    .lishi {
+        background: #ff9e9e;
+    }
+    
+    .yingyu {
+        background: #ffdf62;
+    }
+    
+    .jisuanji {
+        background: #61e7f0;
+    }
+    
+    .wuli {
+        background: #e4e275;
+    }
+    
+    .meishu {
+        background: #fdc081;
+    }
+    
+    .huaxue {
+        background: #c2b4f6;
+    }
+    
+    .dili {
+        background: #62e48a;
+    }
+    
+    .shengwu {
+        background: #ffc262;
+    }
+    
+    .tiyu {
+        background: #c2ec5c;
+    }
+    
+    .dele {
+        background: #FFF;
+        color: #666666;
+    }
+    
+    .yinyue {
+        background: #c2ec5c;
+    }
+    
+    .course_all div {
+        margin-right: 0.5em;
+    }
+    
+    .course_all div:nth-child(7) {
+        margin-right: 0;
+    }
+    
+    
+    .course_all {
+        padding: 0.75em 0.5em 0em 0.5em;
+    }
+    
+    .course_all div {
+        width: 3em;
+        height: 3em;
+        text-align: center;
+        display: inline-block;
+        margin-bottom: 0.5em;
+    }
+    </style>
+    
+    <script>
+	  $(function(){
+	  	function getUrlParam(name) {
+      			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+      			var r = window.location.search.substr(1).match(reg); //匹配目标参数
+      			if (r != null) return unescape(r[2]);
+      			return null; //返回参数值
+      		}
+      		//var stuid = getUrlParam('stuid');
+			$.ajax({
+			 	//用户登录的action
+	            url:"",
+	            type:'POST', //POST
+	            //contentType:'application/json',
+	            data:{ },//courseName:coursename},
+	            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+	            success:function(data){
+					var d = eval("("+data+")");//将数据转换成json类型，可以把data用alert()输出出来看看到底是什么样的结构
+                    //得到的d是一个形如{"key":"value","key1":"value1"}的数据类型，然后取值出来
+                    //alert(d.isSave);
+                    //alert(d.result);
+                    if(d.size > 0){
+	                   for(var i = 0 ; i < d.size; i = i+2){
+		                   $("#content").append(
+		                               '<div class="weui_panel_bd">'+
+							                '<div class="weui_media_box weui_media_text">'+
+							                   '<h4 class="weui_media_title">'+d.result[i].courseName+'</h4>'+
+							                    '<p class="weui_media_desc">授课老师：'+d.result[i].teacherName+'</p>'+
+							                '</div>'+
+							           '</div>'+
+							           '<a href=coursedetail.html?courseid='+d.result[i].courseID+' class="weui_panel_ft">查看更多</a>'
+		                   );
+	                   }
+                   }else{
+                   		//$.alert("抱歉，没有您查询的课程");
+                   }
+                   
+	            }
+	       });
+
+	});    
+	      
+	      </script>
+    </head>
+    <body ontouchstart style="background-color: #f8f8f8;">
+
+     <div class="weui-header " style="background-color: #60a3c3;"> 
+  <div class="weui-header-left"> <a class="icon icon-109 f-white" href="index.html">返回</a>  </div>
+   <h1 class="weui-header-title">学生课表</h1>
+    </div>
+    
+       <table class="course_table">
+        <tbody id="course_html">
+            <tr>
+                <th width="30"></th>
+                <th>周一</th>
+                <th>周二</th>
+                <th>周三</th>
+                <th>周四</th>
+                <th>周五</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><div class="shuxue">高等数学</div></td>
+                <td></td>
+                <td><div class="yingyu">模拟电路</div></td>
+                <td><div class="yuwen">Java</div></td>
+                <td><div class="tiyu">数据库原理与应用</div></td>
+            </tr>
+             <tr>
+                <td>2</td>
+                <td><div class="huaxue">计算机网络</div></td>
+                <td><div class="yuwen">Java</div></td>
+                <td><div class="shuxue">高等数学</div></td>
+                <td><div class="wuli">RFID原理及应用</div></td>
+               
+            </tr>
+             <tr>
+                <td>3</td>
+                <td><div class="yingyu">模拟电路</div></td>
+                <td><div class="lishi">传感器原理与应用</div></td>
+                <td><div class="tiyu">数据库原理与应用</div></td>
+                <td><div class="lishi">传感器原理与应用</div></td>
+                
+            </tr>
+             <tr>
+                <td>4</td>
+                <td><div class="wuli">RFID原理及应用</div></td>
+                <td><div class="huaxue">计算机网络</div></td>
+                <td><div class="meishu">传感器网络</div></td>
+                <td><div class="meishu">传感器网络</div></td>
+                
+            </tr>
+            
+
+        </tbody>
+    </table>  
+      
+
+</body>
+
+</html>

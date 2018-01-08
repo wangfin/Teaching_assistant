@@ -14,7 +14,7 @@ public class DBUtil {
 	private static final String username = "sa";
 	private static final String password = "root";
 	//创建连接类
-	private static Connection conn = null;
+	//private static Connection conn = null;
 	//静态代码块负责加载驱动
 	static 
 	{
@@ -31,6 +31,8 @@ public class DBUtil {
 	//单例模式返回数据库连接对象
 	public static Connection getConnection() throws Exception
 	{
+		//此处为防止“连接已关闭”的错误，在这里创建Connection，为防止使用全局的Connection，而导致多线程并发访问错误
+		Connection conn = null;
 		if(conn == null)//如果没有创建,则创建对象
 		{
 			conn = DriverManager.getConnection(url, username, password);

@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>课程详情</title>
+ <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<link rel="stylesheet" href="../weui/style/weui.css" />
+	<link rel="stylesheet" href="../weui/style/weui2.css" />
+	<link rel="stylesheet" href="../weui/style/weui3.css" />
+	<link rel="stylesheet" href="../weui/style/icon.css"/>
+	<script src="../weui/zepto.min.js"></script>
+      <script>
+  $(function() {
+      		//获取URL传递的参数
+      		function getUrlParam(name) {
+      			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+      			var r = window.location.search.substr(1).match(reg); //匹配目标参数
+      			if (r != null) return unescape(r[2]);
+      			return null; //返回参数值
+      		}
+      		var courseid = getUrlParam('courseid');
+	  		$.ajax({
+			 	//用户登录的action
+	            url:"CourseDetailAction",
+	            type:'POST', //POST
+	            //contentType:'application/json',
+	            data:{ courseID:courseid},
+	            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+	            success:function(data){
+					var d = eval("("+data+")");//将数据转换成json类型，可以把data用alert()输出出来看看到底是什么样的结构
+                    //得到的d是一个形如{"key":"value","key1":"value1"}的数据类型，然后取值出来
+                    //alert(d.isSave);
+                    //alert(d.result);
+                    
+                    if(d.size > 0){
+	                   $("#content").append(
+	                               '<div class="weui-form-preview-hd">'+
+						               ' <label class="weui-form-preview-label">课程名称</label>'+
+						                '<em class="weui-form-preview-value">'+d.result[0].courseName+'</em>'+
+						            '</div>'+
+						            '<div class="weui-form-preview-bd">'+
+						                '<p>'+
+						                    '<label class="weui-form-preview-label">课程编号</label>'+
+						                    '<span class="weui-form-preview-value">'+d.result[0].courseName+'</span>'+
+						                '</p>'+
+						               '<p>'+
+						                    '<label class="weui-form-preview-label">授课老师</label>'+
+						                    '<span class="weui-form-preview-value">'+d.result[0].teacherName+'</span>'+
+						                '</p>'+
+						               '<p>'+
+						                    '<label class="weui-form-preview-label">授课周</label>'+
+						                    '<span class="weui-form-preview-value">'+d.result[0].starttime+'-'+d.result[0].endtime+'周</span>'+
+						                '</p>'+
+						                '<p id="time">'+
+						                    '<label class="weui-form-preview-label">上课时间</label>'+
+											
+						                '</p>'+
+						                '<p>'+
+						                    '<label class="weui-form-preview-label">教室</label>'+
+						                    '<span class="weui-form-preview-value">'+d.result[0].classroomName+'</span>'+
+						                '</p>'+
+						                '<p>'+
+						                    '<label class="weui-form-preview-label">所属专业</label>'+
+						                    '<span class="weui-form-preview-value">'+d.result[0].majorName+'</span>'+
+						                '</p>'+
+						                '<p>'+
+						                    '<label class="weui-form-preview-label">所属院系</label>'+
+						                    '<span class="weui-form-preview-value">'+d.result[0].departmentName+'</span>'+
+						                '</p>'+
+						            '</div>'+
+						        '</div>'
+	                   );
+	                   
+	                   for(var i = 0 ; i < d.size ; i ++){
+		                   $("#time").append(
+		                  	 '<span class="weui-form-preview-value">星期'+d.result[i].weekTime+'，第'+d.result[i].dayTime+'节课'+'</span>'          
+		                   );
+	                   }
+	                   
+	                   }else{
+	                   		$.alert("无此课程");
+	                   }
+                   }
+                   
+	            
+	       });
+	  });    
+      
+      </script>
+</head>
+
+<body ontouchstart class="page-bg">
+
+	<div class="weui-header " style="background-color: #60a3c3;"> 
+	  <div class="weui-header-left"> 
+	  	<a class="icon icon-109 f-white" href="javascript:history.go(-1);">返回</a>  
+	  </div>
+	   <h1 class="weui-header-title">课程详细信息</h1>
+	    </div>
+<div class="weui-form-preview" id="content">
+</div>
+            
+
+
+</body>
+</html>

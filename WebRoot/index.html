@@ -101,6 +101,9 @@
                     //alert(d.result);
                     if(d.result=="未登录"){
                     	//alert("抱歉您还未登录，请先登录");
+                    	$("#my").click(function(){
+                    		$.alert("抱歉，你还未登录", "登录状态");
+                    	});
                     }else{
                     	//alert("欢迎到来授课小助手"+" , "+d.result);	
                     	$("#loginbutton").attr("data-target","");
@@ -189,7 +192,7 @@
         	<h1 class="title" style="display:none"></h1>
 		</header>
 		<!-- 标题栏   -->
-			<div class="weui-header bg-blue" style="height:78px;background-color:#326f8d">
+			<div class="weui-header " style="height:78px;background-color:#60a3c3;">
 				<!--  <div class="weui-header-left" >
 						<div class="weui-avatar-circle">
 							<img src="./weui/images/icon_library.png" class="weui-avatar-url">
@@ -433,10 +436,6 @@
                     
 	            }
 	       });
-	       
-	      $("#my").click(function(){
-	      		window.location.href="./"+logid+"index.html";
-	      });
 	      
 	      
 	  	});
