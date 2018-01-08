@@ -47,21 +47,8 @@
 		</div>
 		<div class="weui_panel_bd">
 			<div class="weui_media_box weui_media_small_appmsg">
-				<div class="weui_cells weui_cells_access">
-					<a class="weui_cell" href="courseDetail.html">
-						<div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
-						<div class="weui_cell_bd weui_cell_primary">
-							<p>传感器原理及其应用</p>
-						</div>
-						<span class="weui_cell_ft"></span>
-					</a>
-					<a class="weui_cell" href="javascript:;">
-						<div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
-						<div class="weui_cell_bd weui_cell_primary">
-							<p>文字标题</p>
-						</div>
-						<span class="weui_cell_ft"></span>
-					</a>
+				<div class="weui_cells weui_cells_access" id="courses">
+					
 				</div>
 			</div>
 		</div>
@@ -69,62 +56,51 @@
 
 
 
-	<div class="weui_panel">
-		<div class="weui_panel_hd">
-			<h2 class="cellTitle">我所有的课程</h2>
-		</div>
-		<div class="weui_panel_bd">
-			<div class="weui_media_box weui_media_small_appmsg">
-				<div class="weui_cells weui_cells_access">
-					<a class="weui_cell" href="javascript:;">
-						<div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
-						<div class="weui_cell_bd weui_cell_primary">
-							<p>文字标题</p>
-						</div>
-						<span class="weui_cell_ft"></span>
-					</a>
-					<a class="weui_cell" href="javascript:;">
-						<div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
-						<div class="weui_cell_bd weui_cell_primary">
-							<p>文字标题</p>
-						</div>
-						<span class="weui_cell_ft"></span>
-					</a>
-					<a class="weui_cell" href="javascript:;">
-						<div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
-						<div class="weui_cell_bd weui_cell_primary">
-							<p>文字标题</p>
-						</div>
-						<span class="weui_cell_ft"></span>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
 	
-	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 	
+	<script src="../js/jquery-3.1.1.min.js"></script>
 	<script>
-	function firstInit() {
-		$.ajax({    
-		    type:'post',        
-		    url:'',    
-		    data:{  
-		    },   
-		    cache:false,      
-		    success:function(data){ 
-		      console.log(data);
-		      var dataJSONObj = eval("(" + data+ ")");
-		      var competiotionName = dataJSONObj.CNA;
-		      var competitionID = dataJSONObj.CNO;
-		      addCompetition(competiotionName, competitionID);
-		    },
-		    error:function(){
-		    	console.log("请求数据失败");
-		    }    
-		});
+		var $j=jQuery.noConflict();
+	</script>
+		
+	<script>
+	
+	initAjax();
+	
+	function initAjax() {
+		var teacherID = "100011";
+		$j.ajax({    
+				type:'post',        
+				url:'/Teaching_assistant/teacher/getTeacherCourses.action',    
+				data:{  
+					teacherID : teacherID
+				},   
+				cache:false,      
+				success:function(data){ 
+					console.log(data);
+					var dataJSONObj = eval("(" + data+ ")");
+					$j.each(dataJSONObj, function(index, obj) {
+						addCourseDom(obj.courseID, obj.courseName);
+					});
+					
+			  },
+			  error:function(){
+			  	console.log("请求数据失败");
+			  }    
+			});
 	}
 	
+	function addCourseDom(courseID, courseName) {
+		var a = $j("<a class='weui_cell' href='courseDetail.html'></a>");
+		var div = $j("<div class='weui_cell_bd weui_cell_primary'></div>");
+		var p = $j("<p>" + courseName + "</p>");
+		var span = $j("<span class='weui_cell_ft'></span>"); 
+		
+		$j("#courses").append(a);
+		a.append(div);
+		div.append(p);
+		a.append(span);
+	}
 	</script>
 </body>
 </html>

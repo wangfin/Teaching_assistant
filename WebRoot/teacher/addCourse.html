@@ -41,7 +41,7 @@
 			</div>
 			<div class="weui_cell_bd weui_cell_primary">
 				<input class="weui_input" type="text" value="陆仁贾" 
-				id="weID" readonly="readonly" />
+				id="teacherName" readonly="readonly" />
 			</div>
 		</div>
 		
@@ -50,7 +50,7 @@
 				<label class="weui_label">课程编号</label>
 			</div>
 			<div class="weui_cell_bd weui_cell_primary">
-				<input class="weui_input" type="text" placeholder="请输入课程编号" id="name" style="width:85%;"/>
+				<input class="weui_input" type="text" placeholder="请输入课程编号" id="courseID" style="width:85%;"/>
 			</div>
 		</div>
 
@@ -59,7 +59,7 @@
 				<label class="weui_label">课程名称</label>
 			</div>
 			<div class="weui_cell_bd weui_cell_primary">
-				<input class="weui_input" type="text" placeholder="请输入课程名称" id="name" style="width:85%;"/>
+				<input class="weui_input" type="text" placeholder="请输入课程名称" id="courseName" style="width:85%;"/>
 			</div>
 		</div>
 
@@ -80,7 +80,7 @@
 				<label for="" class="weui_label">上课时间</label>
 			</div>
 			<div class="weui_cell_bd weui_cell_primary">
-				<input class="weui_input" type="text" placeholder="请选择上课时间" value="" id='coursetime'/>
+				<input class="weui_input" type="text" placeholder="请选择上课时间" value="" id='courseTime'/>
 			</div>
 		</div>
 
@@ -90,7 +90,7 @@
 				<label for="" class="weui_label">课程开始周</label>
 			</div>
 			<div class="weui_cell_bd weui_cell_primary">
-				<input class="weui_input" type="text" placeholder="请选择开始周" value="" id='startweek'/>
+				<input class="weui_input" type="text" placeholder="请选择开始周" value="" id='starttime'/>
 			</div>
 		</div>
 
@@ -99,13 +99,13 @@
 				<label for="" class="weui_label">课程结束周</label>
 			</div>
 			<div class="weui_cell_bd weui_cell_primary">
-				<input class="weui_input" type="text" placeholder="请选择结束周" value="" id='finishweek'/>
+				<input class="weui_input" type="text" placeholder="请选择结束周" value="" id='endtime'/>
 			</div>
 		</div>
 
 		<label for="weuiAgree" class="weui-agree"> 
 			<div class="weui_btn_area">
-				<a href="javascript:;" class="weui_btn weui_btn_plain_primary" style="color: green;">确定</a>
+				<a href="javascript:addCourse();" class="weui_btn weui_btn_plain_primary" style="color: green;">确定</a>
 			</div>
 			<div class="weui_btn_area">
 				<a href="info.html" class="weui_btn weui_btn_plain_default">返回</a>
@@ -121,22 +121,11 @@
 	</script>
 	<script type="text/javascript">
 		
-		/**
-		*获取url中的参数
-		*/
-		function getQueryString(name) {  
-			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");  
-			var r = window.location.search.substr(1).match(reg);  
-			if (r != null) return unescape(r[2]);  
-			return null;  
-	    } 
-	
-		//var majorID = getQueryString("majorID");
-		var department;
+		
 		initAjax();
 		
 		function initAjax() {
-			$.ajax({    
+			$j.ajax({    
 				type:'post',        
 				url:'/Teaching_assistant/manager/getAllClassroom.action',    
 				data:{  
@@ -159,12 +148,11 @@
 			  	console.log("请求数据失败");
 			  }    
 			});
-			
-			
+	
 		}
 		
 		/**
-		*将专业的json提取关键字
+		*将教室的json提取关键字
 		*/
 		function jsonUtil(classroomJSONARR) { 
 			var classroomstr = "[]";
@@ -178,11 +166,54 @@
 			});
 			return classroomsJSON;
 		}
+		
+		var teacherID = "100011";
+		function addCourse() {
+			var courseID = $j("#courseID").val();
+			var courseName = $j("#courseName").val();
+			var classroomID = $j("#classroom").attr("data-values");
+			var courseTime = $j("#courseTime").attr("data-values");
+			var starttime = $j("#starttime").attr("data-values");
+			var endtime = $j("#endtime").attr("data-values");
+			addCourseAjax(teacherID, courseID, courseName, classroomID, 
+			courseTime, starttime, endtime);
+		}
+		
+		function addCourseAjax(teacherID, courseID, courseName, classroomID,
+		courseTime, starttime, endtime) {
+			$j.ajax({    
+				type:'post',        
+				url:'/Teaching_assistant/teacher/insertSingleCourse.action',    
+				data:{  
+					teacherID : teacherID,
+					courseID : courseID,
+					courseName : courseName,
+					classroomID : classroomID,
+					courseTime : courseTime,
+					starttime : starttime,
+					endtime : endtime
+				},   
+				cache:false,      
+				success:function(data){ 
+					console.log(data);
+					if(data == "SUCCESS") {
+						$.toast("操作成功");
+						location.href = "info.html";
+					} else if(data == "FAILURE") {
+						$.toast("操作失败", "forbidden");
+					}
+
+			  },
+			  error:function(){
+			  	console.log("请求数据失败");
+			  }    
+			});
+		}
 	</script>
 	
 	<script>
 		$(function(){
-			$("#coursetime").select({
+			$("#courseTime").select({
 				title: "上课时间",
 				autoClose:true,
 				multi: true,
@@ -214,7 +245,7 @@
 				}
 			});
 			
-			$("#startweek").select({
+			$("#starttime").select({
 				title: "选择开始周",
 				items: ["1","2","3","4","5","6","7","8","9"
 				,"10","11","12","13","14","15","16","17","18","19","20"],
@@ -222,18 +253,18 @@
 					//$.alert("你选择了"+d.values+d.titles);
 				}
 			});
-			$("#finishweek").select({
+			$("#endtime").select({
 				title: "选择结束周",
 				items: ["1","2","3","4","5","6","7","8","9"
 				,"10","11","12","13","14","15","16","17","18","19","20"],
 				onChange: function(d) {
 					//$.alert("你选择了"+d.values+d.titles);
-					var start = $j("#startweek").val();
+					var start = $j("#starttime").val();
 					var end = d.values;
 					
-					if(start >= end) {
+					if( parseInt(start) >= parseInt(end) ) {
 						$.toast("结束时间有误", "forbidden");
-						$j("#finishweek").val("");
+						$j("#endtime").val("");
 					}
 					
 				}

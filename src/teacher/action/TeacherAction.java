@@ -1,20 +1,16 @@
 package teacher.action;
 
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.text.DefaultEditorKit.InsertTabAction;
 
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import manager.dao.ManagerDAO;
-import manager.entity.Department;
+import manager.entity.Course;
 import net.sf.json.JSONArray;
 import teacher.dao.TeacherDao;
 
@@ -31,12 +27,12 @@ public class TeacherAction extends ActionSupport{
 		String courseID = request.getParameter("courseID");
 		String courseName = request.getParameter("courseName");
 		String teacherID = request.getParameter("teacherID");
-		String classroomID = request.getParameter("courseID");
-		String starttime = request.getParameter("courseID");
-		String endtime = request.getParameter("courseID");
+		String classroomID = request.getParameter("classroomID");
+		String starttime = request.getParameter("starttime");
+		String endtime = request.getParameter("endtime");
 		
 		String courseTime = request.getParameter("courseTime");
-		
+		System.out.println("Ìí¼ÓÁË¿Î³Ì");
 		TeacherDao teacherDao = new TeacherDao();
 		result = teacherDao.insertCourse(courseID, courseName, teacherID, 
 				classroomID, starttime, endtime);
@@ -70,5 +66,20 @@ public class TeacherAction extends ActionSupport{
 		}
 	}
 	
-
+	public void getTeacherCourses() throws Exception {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpServletResponse response = ServletActionContext.getResponse();
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		
+		String teacherID = request.getParameter("teacherID");
+		//System.out.println(teacherID);
+		TeacherDao teacherDao = new TeacherDao();
+		ArrayList<Course> courses = teacherDao.getTeacherCourse(teacherID);
+		
+		out.write(JSONArray.fromObject(courses).toString());
+		out.flush();
+		out.close();
+	}
 }

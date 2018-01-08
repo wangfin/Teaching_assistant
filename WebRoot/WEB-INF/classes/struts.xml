@@ -100,6 +100,10 @@
 	        <!-- 新增单个课程 -->
 	     	<action name="insertSingleCourse" class="teacher.action.TeacherAction" method="insertSingleCourse">
 	     	</action>
+	     	
+	     	<!-- 获取单个老师的课程 -->
+	     	<action name="getTeacherCourses" class="teacher.action.TeacherAction" method="getTeacherCourses">
+	     	</action>
 	    </package>
 
 	    <!--  通用包，用来检查登录 -->
